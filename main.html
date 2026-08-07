@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ЗАО Баш сайт — Создание сайтов на заказ</title>
+    <meta name="description" content="Создаем сайты, которые приносят клиентов. Разработка под ключ: дизайн, верстка, хостинг." />
+    <meta name="keywords" content="создание сайтов, разработка сайтов, заказать сайт, студия сайтов" />
+    <meta property="og:title" content="ЗАО Баш сайт — Ваш сайт — ваш лучший продажник" />
+    <meta property="og:description" content="Создаем сайты, которые приносят клиентов с первого дня." />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ===== RESET & VARIABLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary: #0d1b2a;
+            --primary-light: #1a2a3f;
+            --accent: #f4a460;
+            --accent-hover: #ffb87a;
+            --text: #ffffff;
+            --gray: #b0b8c5;
+            --bg-card: #142433;
+            --shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+            --radius: 16px;
+            --transition: 0.3s ease;
+            --font: 'Inter', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: var(--font);
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        a:hover {
+            color: var(--accent-hover);
+        }
+        ul {
+            list-style: none;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(13, 27, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: background 0.3s;
+            padding: 12px 0;
+        }
+        header.scrolled {
+            background: rgba(13, 27, 42, 0.97);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+        .nav-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #fff;
+        }
+        .logo span {
+            color: var(--accent);
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            font-weight: 600;
+        }
+        .nav-links a {
+            color: #eee;
+            font-size: 0.95rem;
+            position: relative;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.6rem;
+            color: #fff;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            padding: 90px 0 20px 0;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        .breadcrumb span {
+            color: #fff;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 60px 0;
+        }
+        .section-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            letter-spacing: -0.02em;
+        }
+        .section-title .highlight {
+            color: var(--accent);
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            transition: transform 0.25s, box-shadow 0.25s;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow);
+        }
+        .card i {
+            font-size: 2.6rem;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        .card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        .card .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 12px 0;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #0d1b2a;
+            font-weight: 700;
+            padding: 14px 38px;
+            border-radius: 60px;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 4px 14px rgba(244, 164, 96, 0.3);
+            text-align: center;
+        }
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: scale(1.03);
+            box-shadow: 0 8px 24px rgba(244, 164, 96, 0.5);
+            color: #0d1b2a;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: #fff;
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background: var(--accent);
+            color: #0d1b2a;
+        }
+        .btn-sm {
+            padding: 10px 24px;
+            font-size: 0.9rem;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 140px 0 80px;
+            background: radial-gradient(circle at 30% 30%, #1a2a3f, #0b1622);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(244, 164, 96, 0.08), transparent 70%);
+            border-radius: 50%;
+        }
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--gray);
+            margin: 24px 0 32px;
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero .btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== PROBLEM-SOLUTION ===== */
+        .problem-solution {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        .problem-solution .text {
+            flex: 1 1 300px;
+        }
+        .problem-solution .image {
+            flex: 1 1 300px;
+            background: linear-gradient(135deg, #2d4059, #0d1b2a);
+            border-radius: var(--radius);
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: var(--accent);
+        }
+
+        /* ===== STEPS ===== */
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        .step {
+            flex: 1 1 160px;
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 24px;
+            text-align: center;
+            border-left: 4px solid var(--accent);
+        }
+        .step .num {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        /* ===== STATS ===== */
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-around;
+            text-align: center;
+        }
+        .stats .item {
+            flex: 1 1 120px;
+        }
+        .stats .number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        /* ===== REVIEWS ===== */
+        .review-card {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: var(--radius);
+        }
+        .review-card .stars {
+            color: #f4a460;
+            letter-spacing: 2px;
+            font-size: 1.2rem;
+        }
+        .review-card .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .review-card .reviewer .avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f4a460, #ffb87a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0d1b2a;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-item {
+            background: var(--bg-card);
+            margin-bottom: 12px;
+            padding: 18px 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .faq-item .q {
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-item .q i {
+            transition: transform 0.3s;
+        }
+        .faq-item.open .q i {
+            transform: rotate(45deg);
+        }
+        .faq-item .a {
+            color: var(--gray);
+            margin-top: 10px;
+            display: none;
+        }
+        .faq-item.open .a {
+            display: block;
+        }
+
+        /* ===== FORMS ===== */
+        .form-group {
+            margin-bottom: 18px;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 40px;
+            border: 1px solid #2d4059;
+            background: #142433;
+            color: #fff;
+            font-size: 1rem;
+            transition: 0.2s;
+            font-family: var(--font);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(244, 164, 96, 0.2);
+        }
+        .form-group textarea {
+            border-radius: 20px;
+            resize: vertical;
+            min-height: 100px;
+        }
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+        .form-row .form-group {
+            flex: 1 1 200px;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent);
+        }
+
+        /* ===== BADGE ===== */
+        .badge {
+            background: var(--accent);
+            color: #0d1b2a;
+            font-weight: 700;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 40px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0a1520;
+            padding: 50px 0 30px;
+            border-top: 1px solid #1f3347;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 40px;
+        }
+        .footer-grid h4 {
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+        .footer-grid a {
+            color: var(--gray);
+            display: block;
+            margin: 6px 0;
+        }
+        .footer-grid a:hover {
+            color: var(--accent);
+        }
+        .footer-grid .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 12px;
+        }
+        .footer-grid .social-links a {
+            font-size: 1.8rem;
+            color: var(--gray);
+        }
+        .footer-grid .social-links a:hover {
+            color: var(--accent);
+        }
+        .footer-bottom {
+            border-top: 1px solid #1f3347;
+            margin-top: 40px;
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* ===== FLOATING CHAT ===== */
+        .float-chat {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .float-chat a {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 2rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            transition: 0.2s;
+        }
+        .float-chat a.whatsapp {
+            background: #25D366;
+        }
+        .float-chat a.telegram {
+            background: #0088cc;
+        }
+        .float-chat a.vk {
+            background: #0077ff;
+        }
+        .float-chat a:hover {
+            transform: scale(1.08);
+        }
+
+        /* ===== SCROLL TOP ===== */
+        #scrollTop {
+            position: fixed;
+            bottom: 160px;
+            right: 30px;
+            background: var(--accent);
+            color: #0d1b2a;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            z-index: 999;
+        }
+        #scrollTop.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        #scrollTop:hover {
+            transform: scale(1.1);
+            background: var(--accent-hover);
+        }
+
+        /* ===== MAP ===== */
+        .map-placeholder {
+            background: #1a2a3f;
+            border-radius: var(--radius);
+            height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin: 20px 0;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .map-placeholder i {
+            font-size: 3rem;
+            color: var(--accent);
+        }
+
+        /* ===== FILTER ===== */
+        .filter-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        .filter-btns button {
+            background: transparent;
+            border: 1px solid #2d4059;
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-weight: 600;
+            font-family: var(--font);
+        }
+        .filter-btns button.active,
+        .filter-btns button:hover {
+            background: var(--accent);
+            color: #0d1b2a;
+            border-color: var(--accent);
+        }
+
+        /* ===== PAGES ===== */
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+
+        /* ===== FADE-UP ===== */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: rgba(13, 27, 42, 0.98);
+                position: absolute;
+                top: 64px;
+                left: 0;
+                width: 100%;
+                padding: 20px 24px;
+                gap: 16px;
+                backdrop-filter: blur(8px);
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 0 16px;
+            }
+            .problem-solution .image {
+                height: 160px;
+            }
+            .steps {
+                flex-direction: column;
+            }
+            .step {
+                flex: none;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-grid .social-links {
+                justify-content: center;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+            .float-chat {
+                bottom: 16px;
+                right: 16px;
+            }
+            .float-chat a {
+                width: 48px;
+                height: 48px;
+                font-size: 1.6rem;
+            }
+            #scrollTop {
+                bottom: 130px;
+                right: 16px;
+                width: 42px;
+                height: 42px;
+                font-size: 1.2rem;
+            }
+            .hero::before {
+                width: 300px;
+                height: 300px;
+                top: -20%;
+                right: -40%;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .btn {
+                padding: 12px 28px;
+                font-size: 0.9rem;
+            }
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .grid-4 {
+                grid-template-columns: 1fr 1fr;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header id="header">
+        <div class="container nav-wrap">
+            <div class="logo">ЗАО <span>Баш сайт</span></div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Меню">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="#" data-page="index" class="active">Главная</a>
+                <a href="#" data-page="services">Услуги</a>
+                <a href="#" data-page="portfolio">Портфолио</a>
+                <a href="#" data-page="about">О нас</a>
+                <a href="#" data-page="contacts">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== BREADCRUMB ===== -->
+    <div class="container breadcrumb" id="breadcrumb">
+        <a href="#" data-page="index">Главная</a> / <span id="pageName">Главная</span>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+
+        <!-- ===== PAGE: INDEX ===== -->
+        <section id="page-index" class="page active">
+            <div class="hero">
+                <div class="container">
+                    <h1>Ваш сайт — ваш лучший продажник за 3 секунды</h1>
+                    <p>Создаем сайты, которые приносят клиентов с первого дня. Разработка под ключ: дизайн, верстка, хостинг.</p>
+                    <div class="btns">
+                        <a href="#" class="btn" data-page="contacts">Заказать сайт</a>
+                        <a href="#" class="btn btn-outline" data-page="services">Узнать стоимость</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <!-- PROBLEM-SOLUTION -->
+                <section>
+                    <div class="problem-solution">
+                        <div class="text">
+                            <h2 class="section-title">Проблема <span class="highlight">→ Решение</span></h2>
+                            <p style="font-size:1.2rem; color:var(--gray);">Шаблонные сайты не продают. У вас нет времени ждать. Мы создаем уникальный дизайн за 7 дней.</p>
+                            <p style="margin-top:16px; color:var(--gray);">Каждый проект — это индивидуальный подход, глубокий анализ бизнеса и современные технологии.</p>
+                        </div>
+                        <div class="image">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SERVICES -->
+                <section>
+                    <h2 class="section-title">Наши <span class="highlight">услуги</span></h2>
+                    <div class="grid-3">
+                        <div class="card">
+                            <i class="fas fa-code"></i>
+                            <h3>Разработка сайтов</h3>
+                            <p>Создаем сайты любой сложности под ключ. От визитки до интернет-магазина.</p>
+                        </div>
+                        <div class="card">
+                            <i class="fas fa-paint-brush"></i>
+                            <h3>Дизайн-студия</h3>
+                            <p>Уникальный дизайн, который выделяет бренд и запоминается клиентам.</p>
+                        </div>
+                        <div class="card">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>SEO-продвижение</h3>
+                            <p>Растем в поиске и привлекаем целевых клиентов из органики.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- STEPS -->
+                <section>
+                    <h2 class="section-title">Как мы <span class="highlight">работаем</span></h2>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="num">1</div>
+                            <h4>Брифинг</h4>
+                            <p style="color:var(--gray);font-size:0.9rem;">Анализируем задачу и цели</p>
+                        </div>
+                        <div class="step">
+                            <div class="num">2</div>
+                            <h4>Прототип</h4>
+                            <p style="color:var(--gray);font-size:0.9rem;">Создаем структуру сайта</p>
+                        </div>
+                        <div class="step">
+                            <div class="num">3</div>
+                            <h4>Разработка</h4>
+                            <p style="color:var(--gray);font-size:0.9rem;">Дизайн + верстка + программирование</p>
+                        </div>
+                        <div class="step">
+                            <div class="num">4</div>
+                            <h4>Запуск</h4>
+                            <p style="color:var(--gray);font-size:0.9rem;">Публикуем и обучаем команду</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- STATS -->
+                <section>
+                    <div class="stats">
+                        <div class="item">
+                            <div class="number">5</div>
+                            <div>лет опыта</div>
+                        </div>
+                        <div class="item">
+                            <div class="number">120+</div>
+                            <div>проектов</div>
+                        </div>
+                        <div class="item">
+                            <div class="number">98%</div>
+                            <div>довольных клиентов</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- REVIEWS -->
+                <section>
+                    <h2 class="section-title">Отзывы <span class="highlight">клиентов</span></h2>
+                    <div class="grid-3">
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p style="color:var(--gray);margin:12px 0;">"Сделали крутой лендинг, продажи выросли в 2 раза за месяц. Очень довольны результатом!"</p>
+                            <div class="reviewer">
+                                <div class="avatar">А</div>
+                                <div><strong>Алексей</strong><br><span style="color:var(--gray);font-size:0.85rem;">CEO "ТехноСтарт"</span></div>
+                            </div>
+                        </div>
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p style="color:var(--gray);margin:12px 0;">"Профессиональный подход, все сделали быстро и качественно. Рекомендую!"</p>
+                            <div class="reviewer">
+                                <div class="avatar">М</div>
+                                <div><strong>Мария</strong><br><span style="color:var(--gray);font-size:0.85rem;">Владелец "БьютиСтудия"</span></div>
+                            </div>
+                        </div>
+                        <div class="review-card">
+                            <div class="stars">★★★★★</div>
+                            <p style="color:var(--gray);margin:12px 0;">"Отличная команда, решили все наши задачи. Сайт работает как часы уже год."</p>
+                            <div class="reviewer">
+                                <div class="avatar">И</div>
+                                <div><strong>Иван</strong><br><span style="color:var(--gray);font-size:0.85rem;">Директор "СтройГарант"</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TRUST -->
+                <section>
+                    <h2 class="section-title">Нам <span class="highlight">доверяют</span></h2>
+                    <div style="display:flex; flex-wrap:wrap; gap:40px; justify-content:center; align-items:center; opacity:0.6; padding:20px 0;">
+                        <span style="font-size:2rem; font-weight:800; color:var(--gray);">ЛОГО 1</span>
+                        <span style="font-size:2rem; font-weight:800; color:var(--gray);">ЛОГО 2</span>
+                        <span style="font-size:2rem; font-weight:800; color:var(--gray);">ЛОГО 3</span>
+                        <span style="font-size:2rem; font-weight:800; color:var(--gray);">ЛОГО 4</span>
+                        <span style="font-size:2rem; font-weight:800; color:var(--gray);">ЛОГО 5</span>
+                    </div>
+                </section>
+
+                <!-- FAQ -->
+                <section>
+                    <h2 class="section-title">Часто задаваемые <span class="highlight">вопросы</span></h2>
+                    <div class="faq-item open">
+                        <div class="q">Сколько стоит сайт? <i class="fas fa-plus"></i></div>
+                        <div class="a">Цена зависит от сложности и функционала. Сайт-визитка от 30 000 руб, интернет-магазин от 100 000 руб. Отправьте заявку — мы сделаем точный расчет.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="q">Как долго делаете сайт? <i class="fas fa-plus"></i></div>
+                        <div class="a">Сроки зависят от проекта. Визитка — 5-7 дней, лендинг — 7-10 дней, интернет-магазин — 14-21 день.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="q">Даете гарантию? <i class="fas fa-plus"></i></div>
+                        <div class="a">Да, мы предоставляем гарантию на все работы — 3 месяца бесплатной поддержки и доработок.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="q">Что нужно для старта? <i class="fas fa-plus"></i></div>
+                        <div class="a">Оставьте заявку, мы проведем брифинг, соберем требования и предложим оптимальное решение.</div>
+                    </div>
+                </section>
+
+                <!-- FORM -->
+                <section>
+                    <h2 class="section-title">Оставьте заявку — <span class="highlight">консультация бесплатно</span></h2>
+                    <form id="mainForm" action="https://formsubmit.co/maxmar3131@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Новая заявка с сайта ЗАО Баш сайт">
+                        <input type="hidden" name="_captcha" value="false">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="Имя" placeholder="Ваше имя" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" name="Телефон" placeholder="Телефон" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="Email" placeholder="Email" required />
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" name="Согласие" required />
+                            <span>Согласен с <a href="#" style="color:var(--accent);">политикой конфиденциальности</a></span>
+                        </div>
+                        <button type="submit" class="btn">Отправить заявку</button>
+                    </form>
+                </section>
+            </div>
+        </section>
+
+        <!-- ===== PAGE: SERVICES ===== -->
+        <section id="page-services" class="page">
+            <div class="container">
+                <h2 class="section-title">Наши <span class="highlight">услуги</span></h2>
+                <div class="grid-3">
+                    <div class="card">
+                        <span class="badge">Популярный</span>
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Сайт-визитка</h3>
+                        <div class="price">от 30 000 ₽</div>
+                        <ul style="color:var(--gray);margin:12px 0;">
+                            <li>✓ Уникальный дизайн</li>
+                            <li>✓ Адаптивная верстка</li>
+                            <li>✓ Настройка хостинга</li>
+                            <li>✓ 3 месяца поддержки</li>
+                        </ul>
+                        <a href="#" class="btn btn-sm" data-page="contacts">Заказать</a>
+                    </div>
+                    <div class="card">
+                        <span class="badge">Хит</span>
+                        <i class="fas fa-bullseye"></i>
+                        <h3>Лендинг</h3>
+                        <div class="price">от 50 000 ₽</div>
+                        <ul style="color:var(--gray);margin:12px 0;">
+                            <li>✓ Продающий дизайн</li>
+                            <li>✓ А/В тестирование</li>
+                            <li>✓ Интеграция с CRM</li>
+                            <li>✓ Аналитика</li>
+                        </ul>
+                        <a href="#" class="btn btn-sm" data-page="contacts">Заказать</a>
+                    </div>
+                    <div class="card">
+                        <span class="badge">Скидка</span>
+                        <i class="fas fa-store"></i>
+                        <h3>Интернет-магазин</h3>
+                        <div class="price">от 100 000 ₽</div>
+                        <ul style="color:var(--gray);margin:12px 0;">
+                            <li>✓ Каталог товаров</li>
+                            <li>✓ Корзина и оплата</li>
+                            <li>✓ Личный кабинет</li>
+                            <li>✓ Интеграция с 1С</li>
+                        </ul>
+                        <a href="#" class="btn btn-sm" data-page="contacts">Заказать</a>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-building"></i>
+                        <h3>Корпоративный сайт</h3>
+                        <div class="price">от 80 000 ₽</div>
+                        <ul style="color:var(--gray);margin:12px 0;">
+                            <li>✓ Многостраничный</li>
+                            <li>✓ Личный кабинет</li>
+                            <li>✓ Система управления</li>
+                            <li>✓ Безопасность</li>
+                        </ul>
+                        <a href="#" class="btn btn-sm" data-page="contacts">Заказать</a>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Мобильная версия</h3>
+                        <div class="price">от 20 000 ₽</div>
+                        <ul style="color:var(--gray);margin:12px 0;">
+                            <li>✓ Адаптив под любые экраны</li>
+                            <li>✓ Оптимизация скорости</li>
+                            <li>✓ Удобный интерфейс</li>
+                        </ul>
+                        <a href="#" class="btn btn-sm" data-page="contacts">Заказать</a>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-search"></i>
+                        <h3>SEO-оптимизация</h3>
+                        <div class="price">от 15 000 ₽/мес</div>
+                        <ul style="color:var(--gray);margin:12px 0;">
+                            <li>✓ Аудит сайта</li>
+                            <li>✓ Оптимизация контента</li>
+                            <li>✓ Рост в поиске</li>
+                            <li>✓ Ежемесячный отчет</li>
+                        </ul>
+                        <a href="#" class="btn btn-sm" data-page="contacts">Заказать</a>
+                    </div>
+                </div>
+
+                <!-- COMPARISON -->
+                <div style="margin-top:50px; background:var(--bg-card); padding:30px; border-radius:var(--radius);">
+                    <h3 style="margin-bottom:20px;">Что входит в каждую разработку</h3>
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:20px; color:var(--gray);">
+                        <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Дизайн-макет</div>
+                        <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Адаптивная верстка</div>
+                        <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Настройка хостинга</div>
+                        <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> 3 месяца поддержки</div>
+                        <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Оптимизация скорости</div>
+                        <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Обучение работе</div>
+                    </div>
+                </div>
+
+                <!-- FORM -->
+                <div style="margin-top:50px;">
+                    <h3 class="section-title">Рассчитайте <span class="highlight">стоимость</span></h3>
+                    <form id="calcForm" action="https://formsubmit.co/maxmar3131@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Запрос расчета стоимости с сайта ЗАО Баш сайт">
+                        <input type="hidden" name="_captcha" value="false">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="Имя" placeholder="Ваше имя" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" name="Телефон" placeholder="Телефон" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="Email" placeholder="Email" required />
+                        </div>
+                        <div class="form-group">
+                            <select name="Тип_сайта" style="width:100%; padding:14px 18px; border-radius:40px; border:1px solid #2d4059; background:#142433; color:#fff; font-size:1rem; font-family:var(--font);">
+                                <option value="">Выберите тип сайта</option>
+                                <option>Сайт-визитка</option>
+                                <option>Лендинг</option>
+                                <option>Интернет-магазин</option>
+                                <option>Корпоративный сайт</option>
+                            </select>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" name="Согласие" required />
+                            <span>Согласен с политикой конфиденциальности</span>
+                        </div>
+                        <button type="submit" class="btn">Получить расчет</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PAGE: PORTFOLIO ===== -->
+        <section id="page-portfolio" class="page">
+            <div class="container">
+                <h2 class="section-title">Наше <span class="highlight">портфолио</span></h2>
+                <div class="filter-btns">
+                    <button class="active" data-filter="all">Все</button>
+                    <button data-filter="landing">Лендинги</button>
+                    <button data-filter="shop">Интернет-магазины</button>
+                    <button data-filter="corp">Корпоративные</button>
+                </div>
+                <div class="grid-3" id="portfolioGrid">
+                    <div class="card" data-category="landing">
+                        <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>СтройТех Лендинг</h3>
+                        <p style="color:var(--gray);">Увеличение заявок на 40%</p>
+                        <a href="#" class="btn btn-sm" style="margin-top:12px;">Смотреть кейс</a>
+                    </div>
+                    <div class="card" data-category="shop">
+                        <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>Модный Магазин</h3>
+                        <p style="color:var(--gray);">Рост продаж на 60% за 3 месяца</p>
+                        <a href="#" class="btn btn-sm" style="margin-top:12px;">Смотреть кейс</a>
+                    </div>
+                    <div class="card" data-category="corp">
+                        <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>ТехноГарант Корп</h3>
+                        <p style="color:var(--gray);">Удобство для сотрудников +50%</p>
+                        <a href="#" class="btn btn-sm" style="margin-top:12px;">Смотреть кейс</a>
+                    </div>
+                    <div class="card" data-category="landing">
+                        <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3>Фотостудия Лендинг</h3>
+                        <p style="color:var(--gray);">Запись клиентов +150%</p>
+                        <a href="#" class="btn btn-sm" style="margin-top:12px;">Смотреть кейс</a>
+                    </div>
+                    <div class="card" data-category="shop">
+                        <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h3>Подарки Онлайн</h3>
+                        <p style="color:var(--gray);">Выручка выросла в 2 раза</p>
+                        <a href="#" class="btn btn-sm" style="margin-top:12px;">Смотреть кейс</a>
+                    </div>
+                    <div class="card" data-category="corp">
+                        <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3>ФинансГрупп</h3>
+                        <p style="color:var(--gray);">Безопасность и стиль</p>
+                        <a href="#" class="btn btn-sm" style="margin-top:12px;">Смотреть кейс</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PAGE: ABOUT ===== -->
+        <section id="page-about" class="page">
+            <div class="container">
+                <h2 class="section-title">О <span class="highlight">нас</span></h2>
+                <p style="color:var(--gray); font-size:1.2rem; max-width:700px; margin-bottom:30px;">
+                    Мы — команда профессионалов с 5-летним опытом в создании сайтов. Помогаем бизнесу расти в интернете с 2019 года.
+                </p>
+
+                <!-- MISSION & VALUES -->
+                <div class="grid-4" style="margin:30px 0;">
+                    <div class="card" style="text-align:center;">
+                        <i class="fas fa-eye"></i>
+                        <h3>Миссия</h3>
+                        <p>Помогать бизнесу расти в интернете через качественные сайты</p>
+                    </div>
+                    <div class="card" style="text-align:center;">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Ценность</h3>
+                        <p>Доверие, качество и результат</p>
+                    </div>
+                    <div class="card" style="text-align:center;">
+                        <i class="fas fa-clock"></i>
+                        <h3>Сроки</h3>
+                        <p>Всегда сдаем проекты в срок</p>
+                    </div>
+                    <div class="card" style="text-align:center;">
+                        <i class="fas fa-users"></i>
+                        <h3>Команда</h3>
+                        <p>10+ опытных специалистов</p>
+                    </div>
+                </div>
+
+                <!-- TEAM -->
+                <h3 style="margin-top:40px; margin-bottom:20px;">Наша <span style="color:var(--accent);">команда</span></h3>
+                <div class="grid-3">
+                    <div class="card text-center">
+                        <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#f4a460,#ffb87a);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:800;color:#0d1b2a;">А</div>
+                        <h4>Анна Петрова</h4>
+                        <p style="color:var(--gray);">CEO / Дизайнер</p>
+                        <div style="display:flex;justify-content:center;gap:12px;margin-top:10px;">
+                            <a href="https://vk.com/id594341269" target="_blank"><i class="fab fa-vk" style="font-size:1.4rem;"></i></a>
+                            <a href="https://t.me/Lincink" target="_blank"><i class="fab fa-telegram" style="font-size:1.4rem;"></i></a>
+                        </div>
+                    </div>
+                    <div class="card text-center">
+                        <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#f4a460,#ffb87a);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:800;color:#0d1b2a;">М</div>
+                        <h4>Максим Иванов</h4>
+                        <p style="color:var(--gray);">Senior Developer</p>
+                        <div style="display:flex;justify-content:center;gap:12px;margin-top:10px;">
+                            <a href="https://vk.com/id594341269" target="_blank"><i class="fab fa-vk" style="font-size:1.4rem;"></i></a>
+                            <a href="https://t.me/Lincink" target="_blank"><i class="fab fa-telegram" style="font-size:1.4rem;"></i></a>
+                        </div>
+                    </div>
+                    <div class="card text-center">
+                        <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#f4a460,#ffb87a);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:800;color:#0d1b2a;">Е</div>
+                        <h4>Елена Смирнова</h4>
+                        <p style="color:var(--gray);">SEO-специалист</p>
+                        <div style="display:flex;justify-content:center;gap:12px;margin-top:10px;">
+                            <a href="https://vk.com/id594341269" target="_blank"><i class="fab fa-vk" style="font-size:1.4rem;"></i></a>
+                            <a href="https://t.me/Lincink" target="_blank"><i class="fab fa-telegram" style="font-size:1.4rem;"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MAP -->
+                <div style="margin-top:50px;">
+                    <h3 style="margin-bottom:20px;">Мы <span style="color:var(--accent);">на карте</span></h3>
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div style="text-align:center;">
+                            <strong>Москва, ул. Тверская 12</strong>
+                            <p style="font-size:0.9rem;margin-top:4px;">Ежедневно: 9:00 – 20:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PAGE: CONTACTS ===== -->
+        <section id="page-contacts" class="page">
+            <div class="container">
+                <h2 class="section-title"><span class="highlight">Контакты</span></h2>
+                <div style="display:flex;flex-wrap:wrap;gap:40px;">
+                    <!-- FORM -->
+                    <div style="flex:1 1 300px;">
+                        <h3 style="margin-bottom:16px;">Напишите <span style="color:var(--accent);">нам</span></h3>
+                        <form id="contactForm" action="https://formsubmit.co/maxmar3131@gmail.com" method="POST">
+                            <input type="hidden" name="_subject" value="Новое сообщение с сайта ЗАО Баш сайт">
+                            <input type="hidden" name="_captcha" value="false">
+                            <div class="form-group">
+                                <input type="text" name="Имя" placeholder="Ваше имя" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" name="Телефон" placeholder="Телефон" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="Email" placeholder="Email" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="Город" placeholder="Город" />
+                            </div>
+                            <div class="form-group">
+                                <textarea name="Сообщение" placeholder="Сообщение" rows="4"></textarea>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" name="Согласие" required />
+                                <span>Согласен с политикой конфиденциальности</span>
+                            </div>
+                            <button type="submit" class="btn">Отправить</button>
+                        </form>
+                    </div>
+
+                    <!-- INFO -->
+                    <div style="flex:1 1 300px;">
+                        <div style="background:var(--bg-card);padding:30px;border-radius:var(--radius);">
+                            <h3 style="margin-bottom:20px;">Контактная <span style="color:var(--accent);">информация</span></h3>
+                            <p style="margin:12px 0;"><i class="fas fa-phone" style="color:var(--accent);width:24px;"></i> <a href="tel:89066015868">8 906 601-58-68</a></p>
+                            <p style="margin:12px 0;"><i class="fas fa-envelope" style="color:var(--accent);width:24px;"></i> <a href="mailto:maxmar3131@gmail.com">maxmar3131@gmail.com</a></p>
+                            <p style="margin:12px 0;"><i class="fas fa-map-marker-alt" style="color:var(--accent);width:24px;"></i> Москва, ул. Тверская 12</p>
+                            <p style="margin:12px 0;"><i class="fas fa-clock" style="color:var(--accent);width:24px;"></i> Ежедневно: 9:00 – 20:00</p>
+
+                            <h4 style="margin:24px 0 12px;">Мы в соцсетях</h4>
+                            <div style="display:flex; gap:16px; font-size:2rem;">
+                                <a href="https://wa.me/qr/S7DLQGRK5Z37G1" target="_blank" style="color:#25D366;"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://t.me/Lincink" target="_blank" style="color:#0088cc;"><i class="fab fa-telegram"></i></a>
+                                <a href="https://vk.com/id594341269" target="_blank" style="color:#0077ff;"><i class="fab fa-vk"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- MAP SMALL -->
+                        <div class="map-placeholder" style="height:180px;margin-top:20px;">
+                            <i class="fas fa-map-pin"></i>
+                            <span>Москва, Тверская 12</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FLOATING CHAT ===== -->
+    <div class="float-chat">
+        <a href="https://t.me/Lincink" target="_blank" class="telegram" aria-label="Telegram">
+            <i class="fab fa-telegram-plane"></i>
+        </a>
+        <a href="https://wa.me/qr/S7DLQGRK5Z37G1" target="_blank" class="whatsapp" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://vk.com/id594341269" target="_blank" class="vk" aria-label="VK">
+            <i class="fab fa-vk"></i>
+        </a>
+    </div>
+
+    <!-- ===== SCROLL TOP ===== -->
+    <button id="scrollTop" aria-label="Наверх">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Логотип + описание -->
+                <div>
+                    <div class="logo" style="font-size:1.4rem;">ЗАО <span>Баш сайт</span></div>
+                    <p style="color:var(--gray); margin-top:8px;">Создаем сайты, которые приносят клиентов</p>
+                </div>
+
+                <!-- Меню -->
+                <div>
+                    <h4>Меню</h4>
+                    <a href="#" data-page="index">Главная</a>
+                    <a href="#" data-page="services">Услуги</a>
+                    <a href="#" data-page="portfolio">Портфолио</a>
+                    <a href="#" data-page="about">О нас</a>
+                    <a href="#" data-page="contacts">Контакты</a>
+                </div>
+
+                <!-- Контакты + соцсети -->
+                <div>
+                    <h4>Контакты</h4>
+                    <a href="tel:89066015868">8 906 601-58-68</a>
+                    <a href="mailto:maxmar3131@gmail.com">maxmar3131@gmail.com</a>
+                    <div class="social-links">
+                        <a href="https://wa.me/qr/S7DLQGRK5Z37G1" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://t.me/Lincink" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://vk.com/id594341269" target="_blank"><i class="fab fa-vk"></i></a>
+                    </div>
+                </div>
+
+                <!-- Информация -->
+                <div>
+                    <h4>Информация</h4>
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Условия использования</a>
+                </div>
+            </div>
+
+            <!-- Копирайт -->
+            <div class="footer-bottom">
+                <span>© 2025 ЗАО Баш сайт. Все права защищены.</span>
+                <span>Сделано с ❤️ в Москве</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        (function() {
+            'use strict';
+
+            // SPA Navigation
+            const pages = {
+                index: 'page-index',
+                services: 'page-services',
+                portfolio: 'page-portfolio',
+                about: 'page-about',
+                contacts: 'page-contacts'
+            };
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const pageNameSpan = document.getElementById('pageName');
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinksContainer = document.getElementById('navLinks');
+
+            function navigate(page) {
+                Object.values(pages).forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.classList.remove('active');
+                });
+                const target = pages[page];
+                if (target) {
+                    const el = document.getElementById(target);
+                    if (el) el.classList.add('active');
+                }
+                navLinks.forEach(a => a.classList.remove('active'));
+                const activeLink = document.querySelector(`.nav-links a[data-page="${page}"]`);
+                if (activeLink) activeLink.classList.add('active');
+                const names = { index: 'Главная', services: 'Услуги', portfolio: 'Портфолио', about: 'О нас',
+                    contacts: 'Контакты' };
+                if (pageNameSpan) pageNameSpan.textContent = names[page] || page;
+                if (navLinksContainer) navLinksContainer.classList.remove('open');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                if (history.pushState) {
+                    history.pushState({ page: page }, '', '#' + page);
+                }
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = this.dataset.page;
+                    if (page && pages[page]) navigate(page);
+                });
+            });
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    if (navLinksContainer) navLinksContainer.classList.toggle('open');
+                });
+            }
+
+            document.querySelectorAll('.breadcrumb a').forEach(a => {
+                a.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = this.dataset.page;
+                    if (page && pages[page]) navigate(page);
+                });
+            });
+
+            document.querySelectorAll('[data-page]').forEach(el => {
+                el.addEventListener('click', function(e) {
+                    const page = this.dataset.page;
+                    if (page && pages[page]) {
+                        e.preventDefault();
+                        navigate(page);
+                    }
+                });
+            });
+
+            window.addEventListener('popstate', function(e) {
+                const page = e.state?.page || 'index';
+                if (pages[page]) navigate(page);
+            });
+
+            const hash = window.location.hash.replace('#', '') || 'index';
+            if (pages[hash]) {
+                navigate(hash);
+            } else {
+                navigate('index');
+            }
+
+            // FAQ Toggle
+            document.querySelectorAll('.faq-item .q').forEach(q => {
+                q.addEventListener('click', function() {
+                    const parent = this.closest('.faq-item');
+                    if (parent) parent.classList.toggle('open');
+                });
+            });
+
+            // Portfolio Filter
+            const filterBtns = document.querySelectorAll('.filter-btns button');
+            const portfolioItems = document.querySelectorAll('#portfolioGrid .card');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    const filter = this.dataset.filter;
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.dataset.category === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Scroll Top
+            const scrollBtn = document.getElementById('scrollTop');
+            const header = document.getElementById('header');
+
+            window.addEventListener('scroll', function() {
+                const y = window.scrollY;
+                if (scrollBtn) {
+                    if (y > 500) {
+                        scrollBtn.classList.add('show');
+                    } else {
+                        scrollBtn.classList.remove('show');
+                    }
+                }
+                if (header) {
+                    if (y > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                }
+                document.querySelectorAll('.fade-up').forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 80) {
+                        el.classList.add('visible');
+                    }
+                });
+            });
+
+            if (scrollBtn) {
+                scrollBtn.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            document.querySelectorAll('.card, .step, .review-card, .faq-item, .stats .item').forEach((el, i) => {
+                el.classList.add('fade-up');
+                setTimeout(() => {
+                    if (el.getBoundingClientRect().top < window.innerHeight) {
+                        el.classList.add('visible');
+                    }
+                }, 100 * i);
+            });
+
+            // Form notification
+            document.querySelectorAll('form').forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    setTimeout(() => {
+                        alert('✅ Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+                    }, 100);
+                });
+            });
+
+        })();
+    </script>
+
+</body>
+</html>
