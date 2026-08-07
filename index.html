@@ -81,15 +81,24 @@
             align-items: center;
             justify-content: space-between;
         }
-        .logo {
+        /* ===== ИЗМЕНЕНИЕ: ЛОГОТИП КАРТИНКОЙ ===== */
+        .logo-img {
+            height: 50px; /* Настройте высоту логотипа под вашу картинку */
+            width: auto;
+            display: block;
+        }
+        /* Если картинки нет, будет показываться текст (запасной вариант) */
+        .logo-text {
+            display: none;
             font-size: 1.6rem;
             font-weight: 800;
             letter-spacing: -0.5px;
             color: #fff;
         }
-        .logo span {
+        .logo-text span {
             color: var(--accent);
         }
+        
         .nav-links {
             display: flex;
             gap: 28px;
@@ -276,14 +285,21 @@
         }
         .problem-solution .image {
             flex: 1 1 300px;
-            background: linear-gradient(135deg, #2d4059, #0d1b2a);
             border-radius: var(--radius);
-            height: 250px;
+            height: 300px; /* Высота увеличена для картинки */
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 5rem;
-            color: var(--accent);
+            overflow: hidden;
+            position: relative;
+            background: #0d1b2a;
+        }
+        /* Стили для картинки лабиринта, чтобы она влезла красиво */
+        .problem-solution .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Картинка заполнит блок без искажений */
+            border-radius: var(--radius);
         }
 
         /* ===== STEPS ===== */
@@ -645,7 +661,7 @@
                 padding: 0 16px;
             }
             .problem-solution .image {
-                height: 160px;
+                height: 200px; /* Адаптив для картинки на мобильных */
             }
             .steps {
                 flex-direction: column;
@@ -716,7 +732,13 @@
     <!-- ===== HEADER ===== -->
     <header id="header">
         <div class="container nav-wrap">
-            <div class="logo">ЗАО <span>Баш сайт</span></div>
+            <!-- ИЗМЕНЕНИЕ: Текстовый логотип заменен на тег <img> -->
+            <!-- Скачайте вашу картинку логотипа, назовите её logo.png и положите в ту же папку, что и html файл -->
+            <a href="#" data-page="index" style="display:flex; align-items:center;">
+                <img src="logo.png" alt="ЗАО Баш сайт" class="logo-img" onerror="this.style.display='none'; document.querySelector('.logo-text').style.display='block';">
+                <div class="logo-text">ЗАО <span>Баш сайт</span></div>
+            </a>
+
             <button class="menu-toggle" id="menuToggle" aria-label="Меню">
                 <i class="fas fa-bars"></i>
             </button>
@@ -760,8 +782,9 @@
                             <p style="font-size:1.2rem; color:var(--gray);">Шаблонные сайты не продают. У вас нет времени ждать. Мы создаем уникальный дизайн за 7 дней.</p>
                             <p style="margin-top:16px; color:var(--gray);">Каждый проект — это индивидуальный подход, глубокий анализ бизнеса и современные технологии.</p>
                         </div>
+                        <!-- ИЗМЕНЕНИЕ: Вставлена картинка лабиринта. Ссылка временная (для примера). -->
                         <div class="image">
-                            <i class="fas fa-rocket"></i>
+                            <img src="https://i.ibb.co/6Pw7Zk2/maze-woman.jpg" alt="Девушка рисует выход из лабиринта" />
                         </div>
                     </div>
                 </section>
@@ -1282,7 +1305,11 @@
             <div class="footer-grid">
                 <!-- Логотип + описание -->
                 <div>
-                    <div class="logo" style="font-size:1.4rem;">ЗАО <span>Баш сайт</span></div>
+                    <!-- ИЗМЕНЕНИЕ: Логотип в футере тоже заменен на картинку -->
+                    <a href="#" data-page="index" style="display:inline-block;">
+                        <img src="logo.png" alt="ЗАО Баш сайт" style="height:40px; width:auto; margin-bottom:8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="logo-text" style="font-size:1.4rem; display:none;">ЗАО <span>Баш сайт</span></div>
+                    </a>
                     <p style="color:var(--gray); margin-top:8px;">Создаем сайты, которые приносят клиентов</p>
                 </div>
 
