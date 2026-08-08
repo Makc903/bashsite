@@ -287,17 +287,38 @@
         .problem-solution .image {
             flex: 1 1 300px;
             border-radius: var(--radius);
-            overflow: hidden;
             height: 300px;
-            background: linear-gradient(135deg, #2d4059, #0d1b2a);
+            background: linear-gradient(135deg, #f4a460, #ffb87a, #f4a460);
+            background-size: 300% 300%;
+            animation: gradientMove 6s ease infinite;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
+            gap: 16px;
+            color: #0d1b2a;
+            font-size: 4rem;
+            box-shadow: 0 8px 32px rgba(244, 164, 96, 0.3);
         }
-        .problem-solution .image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .problem-solution .image .icon-big {
+            font-size: 5rem;
+            color: #0d1b2a;
+        }
+        .problem-solution .image .label {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0d1b2a;
+            letter-spacing: 2px;
+        }
+        .problem-solution .image .sub-label {
+            font-size: 0.9rem;
+            color: #1a2a3f;
+            opacity: 0.8;
         }
 
         .steps {
@@ -452,6 +473,20 @@
             margin-bottom: 8px;
         }
 
+        /* ===== КАРТА ===== */
+        .map-container {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            margin: 20px 0;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+            display: block;
+        }
+
         footer {
             background: #0a1520;
             padding: 50px 0 30px;
@@ -558,24 +593,6 @@
             background: var(--accent-hover);
         }
 
-        .map-placeholder {
-            background: #1a2a3f;
-            border-radius: var(--radius);
-            height: 260px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: var(--gray);
-            margin: 20px 0;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .map-placeholder i {
-            font-size: 3rem;
-            color: var(--accent);
-        }
-
         .filter-btns {
             display: flex;
             flex-wrap: wrap;
@@ -615,6 +632,25 @@
         .fade-up.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* ===== ПОРТФОЛИО — КНОПКИ ТОЛЬКО ДЛЯ ВИДА ===== */
+        .portfolio-btn {
+            display: inline-block;
+            background: transparent;
+            color: var(--gray);
+            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 60px;
+            border: 1px solid #2d4059;
+            font-size: 0.85rem;
+            cursor: default;
+            transition: 0.2s;
+            margin-top: 12px;
+        }
+        .portfolio-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
         }
 
         @media (max-width: 768px) {
@@ -682,6 +718,9 @@
                 height: 42px;
                 font-size: 1.2rem;
             }
+            .map-container iframe {
+                height: 250px;
+            }
         }
         @media (max-width: 480px) {
             .hero h1 {
@@ -708,6 +747,15 @@
             }
             .logo {
                 font-size: 1.1rem;
+            }
+            .problem-solution .image .icon-big {
+                font-size: 3rem;
+            }
+            .problem-solution .image .label {
+                font-size: 1rem;
+            }
+            .map-container iframe {
+                height: 200px;
             }
         }
     </style>
@@ -754,7 +802,7 @@
             </div>
 
             <div class="container">
-                <!-- ПРОБЛЕМА-РЕШЕНИЕ -->
+                <!-- ПРОБЛЕМА-РЕШЕНИЕ (дизайнерский блок) -->
                 <section>
                     <div class="problem-solution">
                         <div class="text">
@@ -763,7 +811,9 @@
                             <p style="margin-top:16px; color:var(--gray);">Каждый проект — это индивидуальный подход, глубокий анализ бизнеса и современные технологии.</p>
                         </div>
                         <div class="image">
-                            <img src="item-3.png" alt="Проблема-Решение" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'color:#f4a460;font-size:1.2rem;padding:20px;text-align:center;\'>📸 Фото загружается...</div>';" />
+                            <i class="fas fa-rocket icon-big"></i>
+                            <span class="label">ВЗЛЕТАЙТЕ</span>
+                            <span class="sub-label">с нашим дизайном</span>
                         </div>
                     </div>
                 </section>
@@ -955,37 +1005,37 @@
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-globe"></i></div>
                         <h3>СтройТех Лендинг</h3>
                         <p style="color:var(--gray);">Увеличение заявок на 40%</p>
-                        <a href="#" class="btn btn-sm" style="margin-top:12px;">Смотреть кейс</a>
+                        <span class="portfolio-btn">Смотреть кейс</span>
                     </div>
                     <div class="card" data-category="shop">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-shopping-cart"></i></div>
                         <h3>Модный Магазин</h3>
                         <p style="color:var(--gray);">Рост продаж на 60% за 3 месяца</p>
-                        <a href="#" class="btn btn-sm" style="margin-top:12px;">Смотреть кейс</a>
+                        <span class="portfolio-btn">Смотреть кейс</span>
                     </div>
                     <div class="card" data-category="corp">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-briefcase"></i></div>
                         <h3>ТехноГарант Корп</h3>
                         <p style="color:var(--gray);">Удобство для сотрудников +50%</p>
-                        <a href="#" class="btn btn-sm" style="margin-top:12px;">Смотреть кейс</a>
+                        <span class="portfolio-btn">Смотреть кейс</span>
                     </div>
                     <div class="card" data-category="landing">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-camera"></i></div>
                         <h3>Фотостудия Лендинг</h3>
                         <p style="color:var(--gray);">Запись клиентов +150%</p>
-                        <a href="#" class="btn btn-sm" style="margin-top:12px;">Смотреть кейс</a>
+                        <span class="portfolio-btn">Смотреть кейс</span>
                     </div>
                     <div class="card" data-category="shop">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-gift"></i></div>
                         <h3>Подарки Онлайн</h3>
                         <p style="color:var(--gray);">Выручка выросла в 2 раза</p>
-                        <a href="#" class="btn btn-sm" style="margin-top:12px;">Смотреть кейс</a>
+                        <span class="portfolio-btn">Смотреть кейс</span>
                     </div>
                     <div class="card" data-category="corp">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-university"></i></div>
                         <h3>ФинансГрупп</h3>
                         <p style="color:var(--gray);">Безопасность и стиль</p>
-                        <a href="#" class="btn btn-sm" style="margin-top:12px;">Смотреть кейс</a>
+                        <span class="portfolio-btn">Смотреть кейс</span>
                     </div>
                 </div>
             </div>
@@ -1027,7 +1077,8 @@
                         </div>
                     </div>
                     <div class="card text-center">
-                        <img src="team-3.png" alt="Дмитрий Соколов" class="team-photo" />
+                        <!-- Фото Дмитрия — красивая заглушка с инициалами -->
+                        <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#f4a460,#ffb87a);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:800;color:#0d1b2a;border:3px solid var(--accent);">ДС</div>
                         <h4>Дмитрий Соколов</h4>
                         <p style="color:var(--gray);">SEO-специалист</p>
                         <div style="display:flex;justify-content:center;gap:12px;margin-top:10px;">
@@ -1037,14 +1088,21 @@
                     </div>
                 </div>
 
+                <!-- КАРТА (Яндекс) -->
                 <div style="margin-top:50px;">
                     <h3 style="margin-bottom:20px;">Мы <span style="color:var(--accent);">на карте</span></h3>
-                    <div class="map-placeholder">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div style="text-align:center;">
-                            <strong>Москва, ул. Тверская 12</strong>
-                            <p style="font-size:0.9rem;margin-top:4px;">Ежедневно: 9:00 – 20:00</p>
-                        </div>
+                    <div class="map-container">
+                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j&amp;source=constructor" 
+                                allowfullscreen="true"
+                                loading="lazy">
+                        </iframe>
+                    </div>
+                    <div style="text-align:center; color:var(--gray); margin-top:12px;">
+                        <i class="fas fa-map-marker-alt" style="color:var(--accent);"></i>
+                        <strong>Москва, ул. Тверская 12</strong>
+                        <span style="display:inline-block; margin-left:20px;">
+                            <i class="fas fa-clock" style="color:var(--accent);"></i> Ежедневно: 9:00 – 20:00
+                        </span>
                     </div>
                 </div>
             </div>
@@ -1086,9 +1144,13 @@
                                 <a href="https://vk.com/id594341269" target="_blank" style="color:#0077ff;"><i class="fab fa-vk"></i></a>
                             </div>
                         </div>
-                        <div class="map-placeholder" style="height:180px;margin-top:20px;">
-                            <i class="fas fa-map-pin"></i>
-                            <span>Москва, Тверская 12</span>
+                        <!-- Маленькая карта для контактов -->
+                        <div class="map-container" style="margin-top:20px;">
+                            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j&amp;source=constructor" 
+                                    allowfullscreen="true"
+                                    loading="lazy"
+                                    style="height:200px;">
+                            </iframe>
                         </div>
                     </div>
                 </div>
