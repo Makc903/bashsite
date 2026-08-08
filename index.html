@@ -135,6 +135,9 @@
         .breadcrumb span {
             color: #fff;
         }
+        .breadcrumb a {
+            color: var(--accent);
+        }
 
         section {
             padding: 60px 0;
@@ -233,6 +236,7 @@
             font-size: 0.9rem;
         }
 
+        /* HERO */
         .hero {
             padding: 140px 0 80px;
             background: radial-gradient(circle at 30% 30%, #1a2a3f, #0b1622);
@@ -275,6 +279,7 @@
             gap: 18px;
         }
 
+        /* PROBLEM-SOLUTION */
         .problem-solution {
             display: flex;
             flex-wrap: wrap;
@@ -321,6 +326,7 @@
             opacity: 0.8;
         }
 
+        /* STEPS */
         .steps {
             display: flex;
             flex-wrap: wrap;
@@ -341,6 +347,7 @@
             color: var(--accent);
         }
 
+        /* STATS */
         .stats {
             display: flex;
             flex-wrap: wrap;
@@ -357,6 +364,7 @@
             color: var(--accent);
         }
 
+        /* REVIEWS */
         .review-card {
             background: var(--bg-card);
             padding: 24px;
@@ -387,6 +395,7 @@
             color: #0d1b2a;
         }
 
+        /* FAQ */
         .faq-item {
             background: var(--bg-card);
             margin-bottom: 12px;
@@ -416,6 +425,7 @@
             display: block;
         }
 
+        /* FORMS */
         .form-group {
             margin-bottom: 18px;
         }
@@ -473,7 +483,7 @@
             margin-bottom: 8px;
         }
 
-        /* ===== КАРТА ===== */
+        /* MAP */
         .map-container {
             border-radius: var(--radius);
             overflow: hidden;
@@ -487,6 +497,68 @@
             display: block;
         }
 
+        /* CASE STUDY PAGE */
+        .case-hero {
+            padding: 120px 0 60px;
+            background: radial-gradient(circle at 30% 30%, #1a2a3f, #0b1622);
+        }
+        .case-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .case-hero .meta {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        .case-hero .meta span {
+            color: var(--accent);
+        }
+        .case-content {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin: 30px 0;
+        }
+        .case-content h3 {
+            color: var(--accent);
+            margin: 24px 0 12px;
+            font-size: 1.4rem;
+        }
+        .case-content h3:first-child {
+            margin-top: 0;
+        }
+        .case-content ul {
+            list-style: disc;
+            padding-left: 20px;
+            color: var(--gray);
+        }
+        .case-content ul li {
+            margin: 6px 0;
+        }
+        .case-content .result-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 16px 0;
+        }
+        .case-content .result-grid .item {
+            background: var(--primary);
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .case-content .result-grid .item .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        .case-content .result-grid .item .label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* FOOTER */
         footer {
             background: #0a1520;
             padding: 50px 0 30px;
@@ -532,6 +604,7 @@
             color: var(--gray);
         }
 
+        /* FLOATING CHAT */
         .float-chat {
             position: fixed;
             bottom: 30px;
@@ -634,23 +707,21 @@
             transform: translateY(0);
         }
 
-        /* ===== ПОРТФОЛИО — КНОПКИ ТОЛЬКО ДЛЯ ВИДА ===== */
-        .portfolio-btn {
+        /* PORTFOLIO CARD BUTTON */
+        .case-link {
             display: inline-block;
-            background: transparent;
-            color: var(--gray);
-            font-weight: 600;
-            padding: 8px 20px;
-            border-radius: 60px;
-            border: 1px solid #2d4059;
-            font-size: 0.85rem;
-            cursor: default;
-            transition: 0.2s;
             margin-top: 12px;
-        }
-        .portfolio-btn:hover {
-            border-color: var(--accent);
+            font-weight: 600;
             color: var(--accent);
+            transition: 0.2s;
+        }
+        .case-link:hover {
+            color: var(--accent-hover);
+            transform: translateX(4px);
+        }
+        .case-link i {
+            font-size: 0.8rem;
+            margin-left: 4px;
         }
 
         @media (max-width: 768px) {
@@ -721,6 +792,12 @@
             .map-container iframe {
                 height: 250px;
             }
+            .case-hero h1 {
+                font-size: 2rem;
+            }
+            .case-content {
+                padding: 24px;
+            }
         }
         @media (max-width: 480px) {
             .hero h1 {
@@ -756,6 +833,9 @@
             }
             .map-container iframe {
                 height: 200px;
+            }
+            .case-hero h1 {
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -802,7 +882,7 @@
             </div>
 
             <div class="container">
-                <!-- ПРОБЛЕМА-РЕШЕНИЕ (дизайнерский блок) -->
+                <!-- ПРОБЛЕМА-РЕШЕНИЕ -->
                 <section>
                     <div class="problem-solution">
                         <div class="text">
@@ -1001,42 +1081,323 @@
                     <button data-filter="corp">Корпоративные</button>
                 </div>
                 <div class="grid-3" id="portfolioGrid">
+                    <!-- КЕЙС 1 -->
                     <div class="card" data-category="landing">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-globe"></i></div>
                         <h3>СтройТех Лендинг</h3>
                         <p style="color:var(--gray);">Увеличение заявок на 40%</p>
-                        <span class="portfolio-btn">Смотреть кейс</span>
+                        <a href="#" class="case-link" data-case="stroytech">Смотреть кейс <i class="fas fa-arrow-right"></i></a>
                     </div>
+                    <!-- КЕЙС 2 -->
                     <div class="card" data-category="shop">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-shopping-cart"></i></div>
                         <h3>Модный Магазин</h3>
                         <p style="color:var(--gray);">Рост продаж на 60% за 3 месяца</p>
-                        <span class="portfolio-btn">Смотреть кейс</span>
+                        <a href="#" class="case-link" data-case="modny">Смотреть кейс <i class="fas fa-arrow-right"></i></a>
                     </div>
+                    <!-- КЕЙС 3 -->
                     <div class="card" data-category="corp">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-briefcase"></i></div>
                         <h3>ТехноГарант Корп</h3>
                         <p style="color:var(--gray);">Удобство для сотрудников +50%</p>
-                        <span class="portfolio-btn">Смотреть кейс</span>
+                        <a href="#" class="case-link" data-case="tehnogarant">Смотреть кейс <i class="fas fa-arrow-right"></i></a>
                     </div>
+                    <!-- КЕЙС 4 -->
                     <div class="card" data-category="landing">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-camera"></i></div>
                         <h3>Фотостудия Лендинг</h3>
                         <p style="color:var(--gray);">Запись клиентов +150%</p>
-                        <span class="portfolio-btn">Смотреть кейс</span>
+                        <a href="#" class="case-link" data-case="fotostudio">Смотреть кейс <i class="fas fa-arrow-right"></i></a>
                     </div>
+                    <!-- КЕЙС 5 -->
                     <div class="card" data-category="shop">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-gift"></i></div>
                         <h3>Подарки Онлайн</h3>
                         <p style="color:var(--gray);">Выручка выросла в 2 раза</p>
-                        <span class="portfolio-btn">Смотреть кейс</span>
+                        <a href="#" class="case-link" data-case="podarki">Смотреть кейс <i class="fas fa-arrow-right"></i></a>
                     </div>
+                    <!-- КЕЙС 6 -->
                     <div class="card" data-category="corp">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-university"></i></div>
                         <h3>ФинансГрупп</h3>
                         <p style="color:var(--gray);">Безопасность и стиль</p>
-                        <span class="portfolio-btn">Смотреть кейс</span>
+                        <a href="#" class="case-link" data-case="finansgrupp">Смотреть кейс <i class="fas fa-arrow-right"></i></a>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== СТРАНИЦЫ КЕЙСОВ (скрыты, показываются по клику) ===== -->
+
+        <!-- КЕЙС 1: СтройТех -->
+        <section id="case-stroytech" class="page">
+            <div class="case-hero">
+                <div class="container">
+                    <div class="breadcrumb" style="padding-top:0; padding-bottom:20px;">
+                        <a href="#" data-page="portfolio">← Назад в портфолио</a>
+                    </div>
+                    <h1>СтройТех Лендинг</h1>
+                    <div class="meta">Категория: <span>Лендинг</span> | Клиент: <span>Строительная компания</span></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="case-content">
+                    <h3>📋 Задача</h3>
+                    <p style="color:var(--gray);">Клиент — строительная компания «СтройТех» — обратился с запросом на создание продающего лендинга для услуги «Строительство домов под ключ». Основная цель — увеличить количество заявок с сайта.</p>
+                    
+                    <h3>💡 Решение</h3>
+                    <ul>
+                        <li>Разработали структуру лендинга с акцентом на преимущества и портфолио</li>
+                        <li>Создали уникальный дизайн с использованием фирменных цветов компании</li>
+                        <li>Настроили формы захвата и интеграцию с CRM</li>
+                        <li>Оптимизировали скорость загрузки (90+ баллов в Google PageSpeed)</li>
+                    </ul>
+
+                    <h3>📊 Результат в цифрах</h3>
+                    <div class="result-grid">
+                        <div class="item"><div class="number">+40%</div><div class="label">Заявок</div></div>
+                        <div class="item"><div class="number">25</div><div class="label">Заявок в день</div></div>
+                        <div class="item"><div class="number">12%</div><div class="label">Конверсия</div></div>
+                    </div>
+
+                    <h3>🛠 Стек технологий</h3>
+                    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Figma</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">HTML5/CSS3</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">JavaScript</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">PHP</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">CRM интеграция</span>
+                    </div>
+                </div>
+                <div style="text-align:center; margin:30px 0;">
+                    <a href="#" class="btn" data-page="contacts">Заказать такой же сайт</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- КЕЙС 2: Модный Магазин -->
+        <section id="case-modny" class="page">
+            <div class="case-hero">
+                <div class="container">
+                    <div class="breadcrumb" style="padding-top:0; padding-bottom:20px;">
+                        <a href="#" data-page="portfolio">← Назад в портфолио</a>
+                    </div>
+                    <h1>Модный Магазин</h1>
+                    <div class="meta">Категория: <span>Интернет-магазин</span> | Клиент: <span>Онлайн-ритейл</span></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="case-content">
+                    <h3>📋 Задача</h3>
+                    <p style="color:var(--gray);">Клиент — интернет-магазин одежды — хотел увеличить продажи и улучшить пользовательский опыт. Старый магазин был медленным и неадаптивным.</p>
+                    
+                    <h3>💡 Решение</h3>
+                    <ul>
+                        <li>Разработали современный дизайн с акцентом на визуал и удобство</li>
+                        <li>Сделали адаптивную версию для мобильных устройств</li>
+                        <li>Настроили умные фильтры и поиск</li>
+                        <li>Интегрировали систему оплаты и доставки</li>
+                    </ul>
+
+                    <h3>📊 Результат в цифрах</h3>
+                    <div class="result-grid">
+                        <div class="item"><div class="number">+60%</div><div class="label">Продаж</div></div>
+                        <div class="item"><div class="number">3</div><div class="label">месяца до результата</div></div>
+                        <div class="item"><div class="number">150+</div><div class="label">заказов в день</div></div>
+                    </div>
+
+                    <h3>🛠 Стек технологий</h3>
+                    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Figma</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">React</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Node.js</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">MongoDB</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Payment Gateway</span>
+                    </div>
+                </div>
+                <div style="text-align:center; margin:30px 0;">
+                    <a href="#" class="btn" data-page="contacts">Заказать такой же сайт</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- КЕЙС 3: ТехноГарант Корп -->
+        <section id="case-tehnogarant" class="page">
+            <div class="case-hero">
+                <div class="container">
+                    <div class="breadcrumb" style="padding-top:0; padding-bottom:20px;">
+                        <a href="#" data-page="portfolio">← Назад в портфолио</a>
+                    </div>
+                    <h1>ТехноГарант Корп</h1>
+                    <div class="meta">Категория: <span>Корпоративный</span> | Клиент: <span>Инжиниринговая компания</span></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="case-content">
+                    <h3>📋 Задача</h3>
+                    <p style="color:var(--gray);">Клиент — инжиниринговая компания — нуждался в современном корпоративном сайте для презентации услуг и привлечения крупных заказчиков.</p>
+                    
+                    <h3>💡 Решение</h3>
+                    <ul>
+                        <li>Создали структуру с разделами услуг, проектов и команды</li>
+                        <li>Разработали строгий, но стильный корпоративный дизайн</li>
+                        <li>Настроили систему управления контентом</li>
+                        <li>Добавили личный кабинет для клиентов</li>
+                    </ul>
+
+                    <h3>📊 Результат в цифрах</h3>
+                    <div class="result-grid">
+                        <div class="item"><div class="number">+50%</div><div class="label">Удобство сотрудников</div></div>
+                        <div class="item"><div class="number">30+</div><div class="label">крупных заказчиков</div></div>
+                        <div class="item"><div class="number">4.8</div><div class="label">оценка клиентов</div></div>
+                    </div>
+
+                    <h3>🛠 Стек технологий</h3>
+                    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Figma</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">WordPress</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">PHP</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">MySQL</span>
+                    </div>
+                </div>
+                <div style="text-align:center; margin:30px 0;">
+                    <a href="#" class="btn" data-page="contacts">Заказать такой же сайт</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- КЕЙС 4: Фотостудия Лендинг -->
+        <section id="case-fotostudio" class="page">
+            <div class="case-hero">
+                <div class="container">
+                    <div class="breadcrumb" style="padding-top:0; padding-bottom:20px;">
+                        <a href="#" data-page="portfolio">← Назад в портфолио</a>
+                    </div>
+                    <h1>Фотостудия Лендинг</h1>
+                    <div class="meta">Категория: <span>Лендинг</span> | Клиент: <span>Фотостудия</span></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="case-content">
+                    <h3>📋 Задача</h3>
+                    <p style="color:var(--gray);">Клиент — фотостудия — хотел привлекать больше клиентов через интернет. Нужен был яркий и продающий лендинг с портфолио.</p>
+                    
+                    <h3>💡 Решение</h3>
+                    <ul>
+                        <li>Разработали визуально яркий лендинг с портфолио и отзывами</li>
+                        <li>Добавили интерактивную галерею</li>
+                        <li>Настроили форму записи онлайн</li>
+                        <li>Оптимизировали для мобильных устройств</li>
+                    </ul>
+
+                    <h3>📊 Результат в цифрах</h3>
+                    <div class="result-grid">
+                        <div class="item"><div class="number">+150%</div><div class="label">Запись клиентов</div></div>
+                        <div class="item"><div class="number">200+</div><div class="label">заявок в месяц</div></div>
+                        <div class="item"><div class="number">18%</div><div class="label">конверсия</div></div>
+                    </div>
+
+                    <h3>🛠 Стек технологий</h3>
+                    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Figma</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">HTML5/CSS3</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">JavaScript</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">PHP</span>
+                    </div>
+                </div>
+                <div style="text-align:center; margin:30px 0;">
+                    <a href="#" class="btn" data-page="contacts">Заказать такой же сайт</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- КЕЙС 5: Подарки Онлайн -->
+        <section id="case-podarki" class="page">
+            <div class="case-hero">
+                <div class="container">
+                    <div class="breadcrumb" style="padding-top:0; padding-bottom:20px;">
+                        <a href="#" data-page="portfolio">← Назад в портфолио</a>
+                    </div>
+                    <h1>Подарки Онлайн</h1>
+                    <div class="meta">Категория: <span>Интернет-магазин</span> | Клиент: <span>Магазин подарков</span></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="case-content">
+                    <h3>📋 Задача</h3>
+                    <p style="color:var(--gray);">Клиент — интернет-магазин подарков — хотел увеличить выручку и улучшить юзабилити.</p>
+                    
+                    <h3>💡 Решение</h3>
+                    <ul>
+                        <li>Разработали уютный и праздничный дизайн</li>
+                        <li>Настроили систему рекомендаций товаров</li>
+                        <li>Интегрировали популярные способы оплаты</li>
+                        <li>Добавили систему лояльности</li>
+                    </ul>
+
+                    <h3>📊 Результат в цифрах</h3>
+                    <div class="result-grid">
+                        <div class="item"><div class="number">×2</div><div class="label">Выручка</div></div>
+                        <div class="item"><div class="number">500+</div><div class="label">заказов в день</div></div>
+                        <div class="item"><div class="number">4.9</div><div class="label">оценка клиентов</div></div>
+                    </div>
+
+                    <h3>🛠 Стек технологий</h3>
+                    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Figma</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Vue.js</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Django</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">PostgreSQL</span>
+                    </div>
+                </div>
+                <div style="text-align:center; margin:30px 0;">
+                    <a href="#" class="btn" data-page="contacts">Заказать такой же сайт</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- КЕЙС 6: ФинансГрупп -->
+        <section id="case-finansgrupp" class="page">
+            <div class="case-hero">
+                <div class="container">
+                    <div class="breadcrumb" style="padding-top:0; padding-bottom:20px;">
+                        <a href="#" data-page="portfolio">← Назад в портфолио</a>
+                    </div>
+                    <h1>ФинансГрупп</h1>
+                    <div class="meta">Категория: <span>Корпоративный</span> | Клиент: <span>Финансовая компания</span></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="case-content">
+                    <h3>📋 Задача</h3>
+                    <p style="color:var(--gray);">Клиент — финансовая компания — нуждался в современном сайте с высоким уровнем безопасности и презентабельным дизайном.</p>
+                    
+                    <h3>💡 Решение</h3>
+                    <ul>
+                        <li>Разработали строгий, но стильный дизайн</li>
+                        <li>Настроили многоуровневую систему безопасности</li>
+                        <li>Сделали интеграцию с банковскими системами</li>
+                        <li>Добавили личный кабинет для клиентов</li>
+                    </ul>
+
+                    <h3>📊 Результат в цифрах</h3>
+                    <div class="result-grid">
+                        <div class="item"><div class="number">100%</div><div class="label">Безопасность</div></div>
+                        <div class="item"><div class="number">50+</div><div class="label">корпоративных клиентов</div></div>
+                        <div class="item"><div class="number">5.0</div><div class="label">оценка клиентов</div></div>
+                    </div>
+
+                    <h3>🛠 Стек технологий</h3>
+                    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Figma</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">React</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Node.js</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">PostgreSQL</span>
+                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">SSL/HTTPS</span>
+                    </div>
+                </div>
+                <div style="text-align:center; margin:30px 0;">
+                    <a href="#" class="btn" data-page="contacts">Заказать такой же сайт</a>
                 </div>
             </div>
         </section>
@@ -1077,7 +1438,6 @@
                         </div>
                     </div>
                     <div class="card text-center">
-                        <!-- Фото Дмитрия — красивая заглушка с инициалами -->
                         <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#f4a460,#ffb87a);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:800;color:#0d1b2a;border:3px solid var(--accent);">ДС</div>
                         <h4>Дмитрий Соколов</h4>
                         <p style="color:var(--gray);">SEO-специалист</p>
@@ -1088,7 +1448,6 @@
                     </div>
                 </div>
 
-                <!-- КАРТА (Яндекс) -->
                 <div style="margin-top:50px;">
                     <h3 style="margin-bottom:20px;">Мы <span style="color:var(--accent);">на карте</span></h3>
                     <div class="map-container">
@@ -1144,7 +1503,6 @@
                                 <a href="https://vk.com/id594341269" target="_blank" style="color:#0077ff;"><i class="fab fa-vk"></i></a>
                             </div>
                         </div>
-                        <!-- Маленькая карта для контактов -->
                         <div class="map-container" style="margin-top:20px;">
                             <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j&amp;source=constructor" 
                                     allowfullscreen="true"
@@ -1222,27 +1580,91 @@
                 about: 'page-about',
                 contacts: 'page-contacts'
             };
+
+            // Все кейсы
+            const cases = {
+                'stroytech': 'case-stroytech',
+                'modny': 'case-modny',
+                'tehnogarant': 'case-tehnogarant',
+                'fotostudio': 'case-fotostudio',
+                'podarki': 'case-podarki',
+                'finansgrupp': 'case-finansgrupp'
+            };
+
+            // Все страницы включая кейсы
+            const allPages = { ...pages, ...cases };
+
             const navLinks = document.querySelectorAll('.nav-links a');
             const pageNameSpan = document.getElementById('pageName');
             const menuToggle = document.getElementById('menuToggle');
             const navLinksContainer = document.getElementById('navLinks');
+            const breadcrumb = document.getElementById('breadcrumb');
 
             function navigate(page) {
-                Object.values(pages).forEach(id => {
+                // Скрыть все страницы
+                Object.values(allPages).forEach(id => {
                     const el = document.getElementById(id);
                     if (el) el.classList.remove('active');
                 });
-                const target = pages[page];
+
+                // Показать нужную
+                const target = allPages[page];
                 if (target) {
                     const el = document.getElementById(target);
                     if (el) el.classList.add('active');
                 }
+
+                // Обновить навигацию
                 navLinks.forEach(a => a.classList.remove('active'));
-                const activeLink = document.querySelector(`.nav-links a[data-page="${page}"]`);
-                if (activeLink) activeLink.classList.add('active');
-                const names = { index: 'Главная', services: 'Услуги', portfolio: 'Портфолио', about: 'О нас',
-                    contacts: 'Контакты' };
-                if (pageNameSpan) pageNameSpan.textContent = names[page] || page;
+                if (pages[page]) {
+                    const activeLink = document.querySelector(`.nav-links a[data-page="${page}"]`);
+                    if (activeLink) activeLink.classList.add('active');
+                }
+
+                // Хлебные крошки
+                const names = {
+                    index: 'Главная',
+                    services: 'Услуги',
+                    portfolio: 'Портфолио',
+                    about: 'О нас',
+                    contacts: 'Контакты'
+                };
+
+                if (pageNameSpan) {
+                    if (cases[page]) {
+                        // Если это кейс — показываем название кейса
+                        const caseNames = {
+                            'stroytech': 'СтройТех Лендинг',
+                            'modny': 'Модный Магазин',
+                            'tehnogarant': 'ТехноГарант Корп',
+                            'fotostudio': 'Фотостудия Лендинг',
+                            'podarki': 'Подарки Онлайн',
+                            'finansgrupp': 'ФинансГрупп'
+                        };
+                        pageNameSpan.textContent = caseNames[page] || page;
+                        // Показываем хлебные крошки
+                        if (breadcrumb) {
+                            breadcrumb.innerHTML = `<a href="#" data-page="portfolio">Портфолио</a> / <span>${caseNames[page] || page}</span>`;
+                            // Добавляем обработчик на "Портфолио"
+                            breadcrumb.querySelector('a').addEventListener('click', function(e) {
+                                e.preventDefault();
+                                navigate('portfolio');
+                                history.pushState({ page: 'portfolio' }, '', '#portfolio');
+                            });
+                        }
+                    } else {
+                        pageNameSpan.textContent = names[page] || page;
+                        if (breadcrumb) {
+                            breadcrumb.innerHTML = `<a href="#" data-page="index">Главная</a> / <span>${names[page] || page}</span>`;
+                            breadcrumb.querySelector('a').addEventListener('click', function(e) {
+                                e.preventDefault();
+                                navigate('index');
+                                history.pushState({ page: 'index' }, '', '#index');
+                            });
+                        }
+                    }
+                }
+
                 if (navLinksContainer) navLinksContainer.classList.remove('open');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 if (history.pushState) {
@@ -1250,11 +1672,37 @@
                 }
             }
 
+            // Навигация
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const page = this.dataset.page;
-                    if (page && pages[page]) navigate(page);
+                    if (page && allPages[page]) {
+                        navigate(page);
+                        // Обновить активный класс
+                        navLinks.forEach(a => a.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+
+            // Обработчики для ссылок на кейсы
+            document.querySelectorAll('.case-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const caseId = this.dataset.case;
+                    if (caseId && cases[caseId]) {
+                        navigate(caseId);
+                    }
+                });
+            });
+
+            // Обработчики для "Назад в портфолио"
+            document.querySelectorAll('.case-hero .breadcrumb a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navigate('portfolio');
+                    history.pushState({ page: 'portfolio' }, '', '#portfolio');
                 });
             });
 
@@ -1264,18 +1712,11 @@
                 });
             }
 
-            document.querySelectorAll('.breadcrumb a').forEach(a => {
-                a.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const page = this.dataset.page;
-                    if (page && pages[page]) navigate(page);
-                });
-            });
-
+            // Все ссылки с data-page
             document.querySelectorAll('[data-page]').forEach(el => {
                 el.addEventListener('click', function(e) {
                     const page = this.dataset.page;
-                    if (page && pages[page]) {
+                    if (page && allPages[page]) {
                         e.preventDefault();
                         navigate(page);
                     }
@@ -1284,16 +1725,17 @@
 
             window.addEventListener('popstate', function(e) {
                 const page = e.state?.page || 'index';
-                if (pages[page]) navigate(page);
+                if (allPages[page]) navigate(page);
             });
 
             const hash = window.location.hash.replace('#', '') || 'index';
-            if (pages[hash]) {
+            if (allPages[hash]) {
                 navigate(hash);
             } else {
                 navigate('index');
             }
 
+            // FAQ
             document.querySelectorAll('.faq-item .q').forEach(q => {
                 q.addEventListener('click', function() {
                     const parent = this.closest('.faq-item');
@@ -1301,6 +1743,7 @@
                 });
             });
 
+            // Фильтр портфолио
             const filterBtns = document.querySelectorAll('.filter-btns button');
             const portfolioItems = document.querySelectorAll('#portfolioGrid .card');
             filterBtns.forEach(btn => {
@@ -1318,6 +1761,7 @@
                 });
             });
 
+            // Scroll
             const scrollBtn = document.getElementById('scrollTop');
             const header = document.getElementById('header');
 
@@ -1351,6 +1795,7 @@
                 });
             }
 
+            // Fade-up
             document.querySelectorAll('.card, .step, .review-card, .faq-item, .stats .item').forEach((el, i) => {
                 el.classList.add('fade-up');
                 setTimeout(() => {
@@ -1360,6 +1805,7 @@
                 }, 100 * i);
             });
 
+            // Формы
             document.querySelectorAll('form').forEach(form => {
                 form.addEventListener('submit', function(e) {
                     setTimeout(() => {
