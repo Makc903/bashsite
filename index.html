@@ -1,6 +1,3 @@
-### Вот **ПОЛНЫЙ И ФИНАЛЬНЫЙ КОД** (Просто скопируйте всё и замените ваш файл):
-
-```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -84,22 +81,20 @@
             align-items: center;
             justify-content: space-between;
         }
-        .logo-img {
-            height: 50px;
-            width: auto;
-            display: block;
-        }
-        .logo-text {
-            display: none;
+        .logo {
             font-size: 1.6rem;
             font-weight: 800;
             letter-spacing: -0.5px;
             color: #fff;
         }
-        .logo-text span {
+        .logo span {
             color: var(--accent);
         }
-        
+        .logo img {
+            height: 40px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
         .nav-links {
             display: flex;
             gap: 28px;
@@ -195,6 +190,22 @@
             color: var(--accent);
             margin: 12px 0;
         }
+        .card .team-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 16px;
+            display: block;
+            border: 3px solid var(--accent);
+        }
+        .card .portfolio-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
 
         /* ===== BUTTONS ===== */
         .btn {
@@ -238,29 +249,22 @@
             background: radial-gradient(circle at 30% 30%, #1a2a3f, #0b1622);
             position: relative;
             overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
-        /* Фоновая картинка для Hero */
-        .hero-bg-img {
+        .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.2; /* Прозрачность */
+            opacity: 0.3;
             z-index: 0;
-            pointer-events: none;
-            display: none;
         }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(244, 164, 96, 0.08), transparent 70%);
-            border-radius: 50%;
+        .hero .container {
+            position: relative;
             z-index: 1;
         }
         .hero h1 {
@@ -269,26 +273,20 @@
             line-height: 1.1;
             letter-spacing: -0.02em;
             max-width: 900px;
-            position: relative;
-            z-index: 2;
         }
         .hero p {
             font-size: 1.3rem;
             color: var(--gray);
             margin: 24px 0 32px;
             max-width: 700px;
-            position: relative;
-            z-index: 2;
         }
         .hero .btns {
             display: flex;
             flex-wrap: wrap;
             gap: 18px;
-            position: relative;
-            z-index: 2;
         }
 
-        /* ===== PROBLEM-SOLUTION (РАКЕТА ПО УМОЛЧАНИЮ) ===== */
+        /* ===== PROBLEM-SOLUTION ===== */
         .problem-solution {
             display: flex;
             flex-wrap: wrap;
@@ -300,14 +298,14 @@
         }
         .problem-solution .image {
             flex: 1 1 300px;
-            background: linear-gradient(135deg, #2d4059, #0d1b2a);
             border-radius: var(--radius);
-            height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            color: var(--accent);
+            overflow: hidden;
+            height: 300px;
+        }
+        .problem-solution .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* ===== STEPS ===== */
@@ -369,7 +367,8 @@
             width: 56px;
             height: 56px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #f4a460, #ffb87a);
+            object-fit: cover;
+            background: var(--accent);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -639,29 +638,6 @@
             transform: translateY(0);
         }
 
-        /* ===== Стили для фото команды ===== */
-        .team-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 16px;
-            display: block;
-        }
-        .team-placeholder {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #f4a460, #ffb87a);
-            margin: 0 auto 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            font-weight: 800;
-            color: #0d1b2a;
-        }
-
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .nav-links {
@@ -692,7 +668,7 @@
                 padding: 0 16px;
             }
             .problem-solution .image {
-                height: 160px;
+                height: 200px;
             }
             .steps {
                 flex-direction: column;
@@ -728,12 +704,6 @@
                 height: 42px;
                 font-size: 1.2rem;
             }
-            .hero::before {
-                width: 300px;
-                height: 300px;
-                top: -20%;
-                right: -40%;
-            }
         }
         @media (max-width: 480px) {
             .hero h1 {
@@ -755,6 +725,9 @@
             .section-title {
                 font-size: 1.6rem;
             }
+            .logo img {
+                height: 30px;
+            }
         }
     </style>
 </head>
@@ -763,11 +736,10 @@
     <!-- ===== HEADER ===== -->
     <header id="header">
         <div class="container nav-wrap">
-            <a href="#" data-page="index" style="display:flex; align-items:center;">
-                <img src="images/logo.png" alt="ЗАО Баш сайт" class="logo-img" onerror="this.style.display='none'; document.querySelector('.logo-text').style.display='block';">
-                <div class="logo-text">ЗАО <span>Баш сайт</span></div>
-            </a>
-
+            <div class="logo">
+                <img src="logo.png" alt="ЗАО Баш сайт" />
+                ЗАО <span>Баш сайт</span>
+            </div>
             <button class="menu-toggle" id="menuToggle" aria-label="Меню">
                 <i class="fas fa-bars"></i>
             </button>
@@ -791,9 +763,9 @@
 
         <!-- ===== PAGE: INDEX ===== -->
         <section id="page-index" class="page active">
-            
+            <!-- HERO -->
             <div class="hero">
-                <img src="images/hero-bg.jpg" class="hero-bg-img" onload="this.style.display='block'" alt="Фон">
+                <img src="hero-bg.png" alt="Фон" class="hero-bg" />
                 <div class="container">
                     <h1>Ваш сайт — ваш лучший продажник за 3 секунды</h1>
                     <p>Создаем сайты, которые приносят клиентов с первого дня. Разработка под ключ: дизайн, верстка, хостинг.</p>
@@ -805,7 +777,7 @@
             </div>
 
             <div class="container">
-                <!-- PROBLEM-SOLUTION (РАКЕТА ПО УМОЛЧАНИЮ, НИКАКИХ КАРТИНОК) -->
+                <!-- PROBLEM-SOLUTION -->
                 <section>
                     <div class="problem-solution">
                         <div class="text">
@@ -814,7 +786,7 @@
                             <p style="margin-top:16px; color:var(--gray);">Каждый проект — это индивидуальный подход, глубокий анализ бизнеса и современные технологии.</p>
                         </div>
                         <div class="image">
-                            <i class="fas fa-rocket"></i>
+                            <img src="item-3.png" alt="Проблема-Решение" />
                         </div>
                     </div>
                 </section>
@@ -1057,6 +1029,53 @@
                         <a href="#" class="btn btn-sm" data-page="contacts">Заказать</a>
                     </div>
                 </div>
+
+                <!-- COMPARISON -->
+                <div style="margin-top:50px; background:var(--bg-card); padding:30px; border-radius:var(--radius);">
+                    <h3 style="margin-bottom:20px;">Что входит в каждую разработку</h3>
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:20px; color:var(--gray);">
+                        <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Дизайн-макет</div>
+                        <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Адаптивная верстка</div>
+                        <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Настройка хостинга</div>
+                        <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> 3 месяца поддержки</div>
+                        <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Оптимизация скорости</div>
+                        <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Обучение работе</div>
+                    </div>
+                </div>
+
+                <!-- FORM -->
+                <div style="margin-top:50px;">
+                    <h3 class="section-title">Рассчитайте <span class="highlight">стоимость</span></h3>
+                    <form id="calcForm" action="https://formsubmit.co/maxmar3131@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Запрос расчета стоимости с сайта ЗАО Баш сайт">
+                        <input type="hidden" name="_captcha" value="false">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="Имя" placeholder="Ваше имя" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" name="Телефон" placeholder="Телефон" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="Email" placeholder="Email" required />
+                        </div>
+                        <div class="form-group">
+                            <select name="Тип_сайта" style="width:100%; padding:14px 18px; border-radius:40px; border:1px solid #2d4059; background:#142433; color:#fff; font-size:1rem; font-family:var(--font);">
+                                <option value="">Выберите тип сайта</option>
+                                <option>Сайт-визитка</option>
+                                <option>Лендинг</option>
+                                <option>Интернет-магазин</option>
+                                <option>Корпоративный сайт</option>
+                            </select>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" name="Согласие" required />
+                            <span>Согласен с политикой конфиденциальности</span>
+                        </div>
+                        <button type="submit" class="btn">Получить расчет</button>
+                    </form>
+                </div>
             </div>
         </section>
 
@@ -1123,7 +1142,7 @@
             </div>
         </section>
 
-        <!-- ===== PAGE: ABOUT (О НАС) ===== -->
+        <!-- ===== PAGE: ABOUT ===== -->
         <section id="page-about" class="page">
             <div class="container">
                 <h2 class="section-title">О <span class="highlight">нас</span></h2>
@@ -1155,14 +1174,11 @@
                     </div>
                 </div>
 
-                <!-- TEAM (2 МУЖЧИНЫ И 1 ДЕВУШКА) -->
+                <!-- TEAM -->
                 <h3 style="margin-top:40px; margin-bottom:20px;">Наша <span style="color:var(--accent);">команда</span></h3>
                 <div class="grid-3">
-                    
-                    <!-- 1. Девушка -->
                     <div class="card text-center">
-                        <img src="images/team-1.jpg" class="team-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Анна Петрова">
-                        <div class="team-placeholder" style="display:none;">А</div>
+                        <img src="team-1.png" alt="Анна Петрова" class="team-photo" />
                         <h4>Анна Петрова</h4>
                         <p style="color:var(--gray);">CEO / Дизайнер</p>
                         <div style="display:flex;justify-content:center;gap:12px;margin-top:10px;">
@@ -1170,11 +1186,8 @@
                             <a href="https://t.me/Lincink" target="_blank"><i class="fab fa-telegram" style="font-size:1.4rem;"></i></a>
                         </div>
                     </div>
-
-                    <!-- 2. Мужчина -->
                     <div class="card text-center">
-                        <img src="images/team-2.jpg" class="team-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Максим Иванов">
-                        <div class="team-placeholder" style="display:none;">М</div>
+                        <img src="team-2.png" alt="Максим Иванов" class="team-photo" />
                         <h4>Максим Иванов</h4>
                         <p style="color:var(--gray);">Senior Developer</p>
                         <div style="display:flex;justify-content:center;gap:12px;margin-top:10px;">
@@ -1182,19 +1195,15 @@
                             <a href="https://t.me/Lincink" target="_blank"><i class="fab fa-telegram" style="font-size:1.4rem;"></i></a>
                         </div>
                     </div>
-
-                    <!-- 3. Мужчина -->
                     <div class="card text-center">
-                        <img src="images/team-3.jpg" class="team-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Дмитрий Соколов">
-                        <div class="team-placeholder" style="display:none;">Д</div>
-                        <h4>Дмитрий Соколов</h4>
+                        <img src="team-3.png" alt="Елена Смирнова" class="team-photo" />
+                        <h4>Елена Смирнова</h4>
                         <p style="color:var(--gray);">SEO-специалист</p>
                         <div style="display:flex;justify-content:center;gap:12px;margin-top:10px;">
                             <a href="https://vk.com/id594341269" target="_blank"><i class="fab fa-vk" style="font-size:1.4rem;"></i></a>
                             <a href="https://t.me/Lincink" target="_blank"><i class="fab fa-telegram" style="font-size:1.4rem;"></i></a>
                         </div>
                     </div>
-
                 </div>
 
                 <!-- MAP -->
@@ -1296,16 +1305,13 @@
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <!-- Логотип + описание -->
                 <div>
-                    <a href="#" data-page="index" style="display:inline-block;">
-                        <img src="images/logo.png" alt="ЗАО Баш сайт" style="height:40px; width:auto; margin-bottom:8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <div class="logo-text" style="font-size:1.4rem; display:none;">ЗАО <span>Баш сайт</span></div>
-                    </a>
+                    <div class="logo" style="font-size:1.4rem;">
+                        <img src="logo.png" alt="ЗАО Баш сайт" style="height:30px; vertical-align:middle; margin-right:8px;" />
+                        ЗАО <span>Баш сайт</span>
+                    </div>
                     <p style="color:var(--gray); margin-top:8px;">Создаем сайты, которые приносят клиентов</p>
                 </div>
-
-                <!-- Меню -->
                 <div>
                     <h4>Меню</h4>
                     <a href="#" data-page="index">Главная</a>
@@ -1314,8 +1320,6 @@
                     <a href="#" data-page="about">О нас</a>
                     <a href="#" data-page="contacts">Контакты</a>
                 </div>
-
-                <!-- Контакты + соцсети -->
                 <div>
                     <h4>Контакты</h4>
                     <a href="tel:89066015868">8 906 601-58-68</a>
@@ -1326,16 +1330,12 @@
                         <a href="https://vk.com/id594341269" target="_blank"><i class="fab fa-vk"></i></a>
                     </div>
                 </div>
-
-                <!-- Информация -->
                 <div>
                     <h4>Информация</h4>
                     <a href="#">Политика конфиденциальности</a>
                     <a href="#">Условия использования</a>
                 </div>
             </div>
-
-            <!-- Копирайт -->
             <div class="footer-bottom">
                 <span>© 2025 ЗАО Баш сайт. Все права защищены.</span>
                 <span>Сделано с ❤️ в Москве</span>
@@ -1362,37 +1362,28 @@
             const navLinksContainer = document.getElementById('navLinks');
 
             function navigate(page) {
-                // Hide all pages
                 Object.values(pages).forEach(id => {
                     const el = document.getElementById(id);
                     if (el) el.classList.remove('active');
                 });
-                // Show target page
                 const target = pages[page];
                 if (target) {
                     const el = document.getElementById(target);
                     if (el) el.classList.add('active');
                 }
-                // Update nav active state
                 navLinks.forEach(a => a.classList.remove('active'));
                 const activeLink = document.querySelector(`.nav-links a[data-page="${page}"]`);
                 if (activeLink) activeLink.classList.add('active');
-                
-                // Update breadcrumb
                 const names = { index: 'Главная', services: 'Услуги', portfolio: 'Портфолио', about: 'О нас',
                     contacts: 'Контакты' };
                 if (pageNameSpan) pageNameSpan.textContent = names[page] || page;
-                
-                // Close mobile menu
                 if (navLinksContainer) navLinksContainer.classList.remove('open');
-                
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 if (history.pushState) {
                     history.pushState({ page: page }, '', '#' + page);
                 }
             }
 
-            // Click handlers for navigation links
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1401,15 +1392,12 @@
                 });
             });
 
-            // Mobile menu toggle (FIXED)
-            if (menuToggle && navLinksContainer) {
-                menuToggle.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    navLinksContainer.classList.toggle('open');
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    if (navLinksContainer) navLinksContainer.classList.toggle('open');
                 });
             }
 
-            // Breadcrumb links
             document.querySelectorAll('.breadcrumb a').forEach(a => {
                 a.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1418,7 +1406,6 @@
                 });
             });
 
-            // All data-page buttons
             document.querySelectorAll('[data-page]').forEach(el => {
                 el.addEventListener('click', function(e) {
                     const page = this.dataset.page;
@@ -1429,13 +1416,11 @@
                 });
             });
 
-            // Handle back/forward browser buttons
             window.addEventListener('popstate', function(e) {
                 const page = e.state?.page || 'index';
                 if (pages[page]) navigate(page);
             });
 
-            // Initial load from URL hash
             const hash = window.location.hash.replace('#', '') || 'index';
             if (pages[hash]) {
                 navigate(hash);
@@ -1469,7 +1454,7 @@
                 });
             });
 
-            // Scroll Top & Header Shadow
+            // Scroll Top
             const scrollBtn = document.getElementById('scrollTop');
             const header = document.getElementById('header');
 
@@ -1526,4 +1511,3 @@
 
 </body>
 </html>
-```
