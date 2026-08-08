@@ -135,9 +135,6 @@
         .breadcrumb span {
             color: #fff;
         }
-        .breadcrumb a {
-            color: var(--accent);
-        }
 
         section {
             padding: 60px 0;
@@ -236,7 +233,6 @@
             font-size: 0.9rem;
         }
 
-        /* HERO */
         .hero {
             padding: 140px 0 80px;
             background: radial-gradient(circle at 30% 30%, #1a2a3f, #0b1622);
@@ -279,7 +275,6 @@
             gap: 18px;
         }
 
-        /* PROBLEM-SOLUTION */
         .problem-solution {
             display: flex;
             flex-wrap: wrap;
@@ -326,7 +321,6 @@
             opacity: 0.8;
         }
 
-        /* STEPS */
         .steps {
             display: flex;
             flex-wrap: wrap;
@@ -347,7 +341,6 @@
             color: var(--accent);
         }
 
-        /* STATS */
         .stats {
             display: flex;
             flex-wrap: wrap;
@@ -364,7 +357,6 @@
             color: var(--accent);
         }
 
-        /* REVIEWS */
         .review-card {
             background: var(--bg-card);
             padding: 24px;
@@ -395,7 +387,6 @@
             color: #0d1b2a;
         }
 
-        /* FAQ */
         .faq-item {
             background: var(--bg-card);
             margin-bottom: 12px;
@@ -425,7 +416,6 @@
             display: block;
         }
 
-        /* FORMS */
         .form-group {
             margin-bottom: 18px;
         }
@@ -483,7 +473,6 @@
             margin-bottom: 8px;
         }
 
-        /* MAP */
         .map-container {
             border-radius: var(--radius);
             overflow: hidden;
@@ -497,7 +486,6 @@
             display: block;
         }
 
-        /* CASE STUDY PAGE */
         .case-hero {
             padding: 120px 0 60px;
             background: radial-gradient(circle at 30% 30%, #1a2a3f, #0b1622);
@@ -558,7 +546,6 @@
             font-size: 0.9rem;
         }
 
-        /* FOOTER */
         footer {
             background: #0a1520;
             padding: 50px 0 30px;
@@ -604,7 +591,6 @@
             color: var(--gray);
         }
 
-        /* FLOATING CHAT */
         .float-chat {
             position: fixed;
             bottom: 30px;
@@ -707,21 +693,18 @@
             transform: translateY(0);
         }
 
-        /* PORTFOLIO CARD BUTTON */
         .case-link {
             display: inline-block;
             margin-top: 12px;
             font-weight: 600;
-            color: var(--accent);
+            color: var(--gray);
             transition: 0.2s;
-        }
-        .case-link:hover {
-            color: var(--accent-hover);
-            transform: translateX(4px);
+            cursor: default;
+            font-size: 0.9rem;
         }
         .case-link i {
-            font-size: 0.8rem;
             margin-left: 4px;
+            font-size: 0.8rem;
         }
 
         @media (max-width: 768px) {
@@ -962,17 +945,7 @@
                     </div>
                 </section>
 
-                <!-- ДОВЕРИЕ -->
-                <section>
-                    <h2 class="section-title">Нам <span class="highlight">доверяют</span></h2>
-                    <div style="display:flex; flex-wrap:wrap; gap:40px; justify-content:center; align-items:center; opacity:0.6; padding:20px 0;">
-                        <span style="font-size:2rem; font-weight:800; color:var(--gray);">ЛОГО 1</span>
-                        <span style="font-size:2rem; font-weight:800; color:var(--gray);">ЛОГО 2</span>
-                        <span style="font-size:2rem; font-weight:800; color:var(--gray);">ЛОГО 3</span>
-                        <span style="font-size:2rem; font-weight:800; color:var(--gray);">ЛОГО 4</span>
-                        <span style="font-size:2rem; font-weight:800; color:var(--gray);">ЛОГО 5</span>
-                    </div>
-                </section>
+                <!-- ⛔ БЛОК "НАМ ДОВЕРЯЮТ" УДАЛЁН -->
 
                 <!-- FAQ -->
                 <section>
@@ -1081,55 +1054,41 @@
                     <button data-filter="corp">Корпоративные</button>
                 </div>
                 <div class="grid-3" id="portfolioGrid">
-                    <!-- КЕЙС 1 -->
                     <div class="card" data-category="landing">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-globe"></i></div>
                         <h3>СтройТех Лендинг</h3>
                         <p style="color:var(--gray);">Увеличение заявок на 40%</p>
-                        <a href="#" class="case-link" data-case="stroytech">Смотреть кейс <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <!-- КЕЙС 2 -->
                     <div class="card" data-category="shop">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-shopping-cart"></i></div>
                         <h3>Модный Магазин</h3>
                         <p style="color:var(--gray);">Рост продаж на 60% за 3 месяца</p>
-                        <a href="#" class="case-link" data-case="modny">Смотреть кейс <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <!-- КЕЙС 3 -->
                     <div class="card" data-category="corp">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-briefcase"></i></div>
                         <h3>ТехноГарант Корп</h3>
                         <p style="color:var(--gray);">Удобство для сотрудников +50%</p>
-                        <a href="#" class="case-link" data-case="tehnogarant">Смотреть кейс <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <!-- КЕЙС 4 -->
                     <div class="card" data-category="landing">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-camera"></i></div>
                         <h3>Фотостудия Лендинг</h3>
                         <p style="color:var(--gray);">Запись клиентов +150%</p>
-                        <a href="#" class="case-link" data-case="fotostudio">Смотреть кейс <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <!-- КЕЙС 5 -->
                     <div class="card" data-category="shop">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-gift"></i></div>
                         <h3>Подарки Онлайн</h3>
                         <p style="color:var(--gray);">Выручка выросла в 2 раза</p>
-                        <a href="#" class="case-link" data-case="podarki">Смотреть кейс <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <!-- КЕЙС 6 -->
                     <div class="card" data-category="corp">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-university"></i></div>
                         <h3>ФинансГрупп</h3>
                         <p style="color:var(--gray);">Безопасность и стиль</p>
-                        <a href="#" class="case-link" data-case="finansgrupp">Смотреть кейс <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== СТРАНИЦЫ КЕЙСОВ (скрыты, показываются по клику) ===== -->
-
-        <!-- КЕЙС 1: СтройТех -->
+        <!-- ===== СТРАНИЦЫ КЕЙСОВ ===== -->
         <section id="case-stroytech" class="page">
             <div class="case-hero">
                 <div class="container">
@@ -1144,7 +1103,6 @@
                 <div class="case-content">
                     <h3>📋 Задача</h3>
                     <p style="color:var(--gray);">Клиент — строительная компания «СтройТех» — обратился с запросом на создание продающего лендинга для услуги «Строительство домов под ключ». Основная цель — увеличить количество заявок с сайта.</p>
-                    
                     <h3>💡 Решение</h3>
                     <ul>
                         <li>Разработали структуру лендинга с акцентом на преимущества и портфолио</li>
@@ -1152,14 +1110,12 @@
                         <li>Настроили формы захвата и интеграцию с CRM</li>
                         <li>Оптимизировали скорость загрузки (90+ баллов в Google PageSpeed)</li>
                     </ul>
-
                     <h3>📊 Результат в цифрах</h3>
                     <div class="result-grid">
                         <div class="item"><div class="number">+40%</div><div class="label">Заявок</div></div>
                         <div class="item"><div class="number">25</div><div class="label">Заявок в день</div></div>
                         <div class="item"><div class="number">12%</div><div class="label">Конверсия</div></div>
                     </div>
-
                     <h3>🛠 Стек технологий</h3>
                     <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
                         <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Figma</span>
@@ -1175,7 +1131,6 @@
             </div>
         </section>
 
-        <!-- КЕЙС 2: Модный Магазин -->
         <section id="case-modny" class="page">
             <div class="case-hero">
                 <div class="container">
@@ -1190,7 +1145,6 @@
                 <div class="case-content">
                     <h3>📋 Задача</h3>
                     <p style="color:var(--gray);">Клиент — интернет-магазин одежды — хотел увеличить продажи и улучшить пользовательский опыт. Старый магазин был медленным и неадаптивным.</p>
-                    
                     <h3>💡 Решение</h3>
                     <ul>
                         <li>Разработали современный дизайн с акцентом на визуал и удобство</li>
@@ -1198,14 +1152,12 @@
                         <li>Настроили умные фильтры и поиск</li>
                         <li>Интегрировали систему оплаты и доставки</li>
                     </ul>
-
                     <h3>📊 Результат в цифрах</h3>
                     <div class="result-grid">
                         <div class="item"><div class="number">+60%</div><div class="label">Продаж</div></div>
                         <div class="item"><div class="number">3</div><div class="label">месяца до результата</div></div>
                         <div class="item"><div class="number">150+</div><div class="label">заказов в день</div></div>
                     </div>
-
                     <h3>🛠 Стек технологий</h3>
                     <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
                         <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Figma</span>
@@ -1221,7 +1173,6 @@
             </div>
         </section>
 
-        <!-- КЕЙС 3: ТехноГарант Корп -->
         <section id="case-tehnogarant" class="page">
             <div class="case-hero">
                 <div class="container">
@@ -1236,7 +1187,6 @@
                 <div class="case-content">
                     <h3>📋 Задача</h3>
                     <p style="color:var(--gray);">Клиент — инжиниринговая компания — нуждался в современном корпоративном сайте для презентации услуг и привлечения крупных заказчиков.</p>
-                    
                     <h3>💡 Решение</h3>
                     <ul>
                         <li>Создали структуру с разделами услуг, проектов и команды</li>
@@ -1244,14 +1194,12 @@
                         <li>Настроили систему управления контентом</li>
                         <li>Добавили личный кабинет для клиентов</li>
                     </ul>
-
                     <h3>📊 Результат в цифрах</h3>
                     <div class="result-grid">
                         <div class="item"><div class="number">+50%</div><div class="label">Удобство сотрудников</div></div>
                         <div class="item"><div class="number">30+</div><div class="label">крупных заказчиков</div></div>
                         <div class="item"><div class="number">4.8</div><div class="label">оценка клиентов</div></div>
                     </div>
-
                     <h3>🛠 Стек технологий</h3>
                     <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
                         <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Figma</span>
@@ -1266,7 +1214,6 @@
             </div>
         </section>
 
-        <!-- КЕЙС 4: Фотостудия Лендинг -->
         <section id="case-fotostudio" class="page">
             <div class="case-hero">
                 <div class="container">
@@ -1281,7 +1228,6 @@
                 <div class="case-content">
                     <h3>📋 Задача</h3>
                     <p style="color:var(--gray);">Клиент — фотостудия — хотел привлекать больше клиентов через интернет. Нужен был яркий и продающий лендинг с портфолио.</p>
-                    
                     <h3>💡 Решение</h3>
                     <ul>
                         <li>Разработали визуально яркий лендинг с портфолио и отзывами</li>
@@ -1289,14 +1235,12 @@
                         <li>Настроили форму записи онлайн</li>
                         <li>Оптимизировали для мобильных устройств</li>
                     </ul>
-
                     <h3>📊 Результат в цифрах</h3>
                     <div class="result-grid">
                         <div class="item"><div class="number">+150%</div><div class="label">Запись клиентов</div></div>
                         <div class="item"><div class="number">200+</div><div class="label">заявок в месяц</div></div>
                         <div class="item"><div class="number">18%</div><div class="label">конверсия</div></div>
                     </div>
-
                     <h3>🛠 Стек технологий</h3>
                     <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
                         <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Figma</span>
@@ -1311,7 +1255,6 @@
             </div>
         </section>
 
-        <!-- КЕЙС 5: Подарки Онлайн -->
         <section id="case-podarki" class="page">
             <div class="case-hero">
                 <div class="container">
@@ -1326,7 +1269,6 @@
                 <div class="case-content">
                     <h3>📋 Задача</h3>
                     <p style="color:var(--gray);">Клиент — интернет-магазин подарков — хотел увеличить выручку и улучшить юзабилити.</p>
-                    
                     <h3>💡 Решение</h3>
                     <ul>
                         <li>Разработали уютный и праздничный дизайн</li>
@@ -1334,14 +1276,12 @@
                         <li>Интегрировали популярные способы оплаты</li>
                         <li>Добавили систему лояльности</li>
                     </ul>
-
                     <h3>📊 Результат в цифрах</h3>
                     <div class="result-grid">
                         <div class="item"><div class="number">×2</div><div class="label">Выручка</div></div>
                         <div class="item"><div class="number">500+</div><div class="label">заказов в день</div></div>
                         <div class="item"><div class="number">4.9</div><div class="label">оценка клиентов</div></div>
                     </div>
-
                     <h3>🛠 Стек технологий</h3>
                     <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
                         <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Figma</span>
@@ -1356,7 +1296,6 @@
             </div>
         </section>
 
-        <!-- КЕЙС 6: ФинансГрупп -->
         <section id="case-finansgrupp" class="page">
             <div class="case-hero">
                 <div class="container">
@@ -1371,7 +1310,6 @@
                 <div class="case-content">
                     <h3>📋 Задача</h3>
                     <p style="color:var(--gray);">Клиент — финансовая компания — нуждался в современном сайте с высоким уровнем безопасности и презентабельным дизайном.</p>
-                    
                     <h3>💡 Решение</h3>
                     <ul>
                         <li>Разработали строгий, но стильный дизайн</li>
@@ -1379,14 +1317,12 @@
                         <li>Сделали интеграцию с банковскими системами</li>
                         <li>Добавили личный кабинет для клиентов</li>
                     </ul>
-
                     <h3>📊 Результат в цифрах</h3>
                     <div class="result-grid">
                         <div class="item"><div class="number">100%</div><div class="label">Безопасность</div></div>
                         <div class="item"><div class="number">50+</div><div class="label">корпоративных клиентов</div></div>
                         <div class="item"><div class="number">5.0</div><div class="label">оценка клиентов</div></div>
                     </div>
-
                     <h3>🛠 Стек технологий</h3>
                     <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
                         <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Figma</span>
@@ -1581,7 +1517,6 @@
                 contacts: 'page-contacts'
             };
 
-            // Все кейсы
             const cases = {
                 'stroytech': 'case-stroytech',
                 'modny': 'case-modny',
@@ -1591,7 +1526,6 @@
                 'finansgrupp': 'case-finansgrupp'
             };
 
-            // Все страницы включая кейсы
             const allPages = { ...pages, ...cases };
 
             const navLinks = document.querySelectorAll('.nav-links a');
@@ -1601,27 +1535,23 @@
             const breadcrumb = document.getElementById('breadcrumb');
 
             function navigate(page) {
-                // Скрыть все страницы
                 Object.values(allPages).forEach(id => {
                     const el = document.getElementById(id);
                     if (el) el.classList.remove('active');
                 });
 
-                // Показать нужную
                 const target = allPages[page];
                 if (target) {
                     const el = document.getElementById(target);
                     if (el) el.classList.add('active');
                 }
 
-                // Обновить навигацию
                 navLinks.forEach(a => a.classList.remove('active'));
                 if (pages[page]) {
                     const activeLink = document.querySelector(`.nav-links a[data-page="${page}"]`);
                     if (activeLink) activeLink.classList.add('active');
                 }
 
-                // Хлебные крошки
                 const names = {
                     index: 'Главная',
                     services: 'Услуги',
@@ -1632,7 +1562,6 @@
 
                 if (pageNameSpan) {
                     if (cases[page]) {
-                        // Если это кейс — показываем название кейса
                         const caseNames = {
                             'stroytech': 'СтройТех Лендинг',
                             'modny': 'Модный Магазин',
@@ -1642,10 +1571,8 @@
                             'finansgrupp': 'ФинансГрупп'
                         };
                         pageNameSpan.textContent = caseNames[page] || page;
-                        // Показываем хлебные крошки
                         if (breadcrumb) {
                             breadcrumb.innerHTML = `<a href="#" data-page="portfolio">Портфолио</a> / <span>${caseNames[page] || page}</span>`;
-                            // Добавляем обработчик на "Портфолио"
                             breadcrumb.querySelector('a').addEventListener('click', function(e) {
                                 e.preventDefault();
                                 navigate('portfolio');
@@ -1672,27 +1599,14 @@
                 }
             }
 
-            // Навигация
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const page = this.dataset.page;
                     if (page && allPages[page]) {
                         navigate(page);
-                        // Обновить активный класс
                         navLinks.forEach(a => a.classList.remove('active'));
                         this.classList.add('active');
-                    }
-                });
-            });
-
-            // Обработчики для ссылок на кейсы
-            document.querySelectorAll('.case-link').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const caseId = this.dataset.case;
-                    if (caseId && cases[caseId]) {
-                        navigate(caseId);
                     }
                 });
             });
@@ -1712,7 +1626,6 @@
                 });
             }
 
-            // Все ссылки с data-page
             document.querySelectorAll('[data-page]').forEach(el => {
                 el.addEventListener('click', function(e) {
                     const page = this.dataset.page;
@@ -1761,7 +1674,6 @@
                 });
             });
 
-            // Scroll
             const scrollBtn = document.getElementById('scrollTop');
             const header = document.getElementById('header');
 
@@ -1795,7 +1707,6 @@
                 });
             }
 
-            // Fade-up
             document.querySelectorAll('.card, .step, .review-card, .faq-item, .stats .item').forEach((el, i) => {
                 el.classList.add('fade-up');
                 setTimeout(() => {
@@ -1805,7 +1716,6 @@
                 }, 100 * i);
             });
 
-            // Формы
             document.querySelectorAll('form').forEach(form => {
                 form.addEventListener('submit', function(e) {
                     setTimeout(() => {
