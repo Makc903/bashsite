@@ -150,7 +150,7 @@
         }
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
         .grid-4 {
@@ -164,6 +164,8 @@
             padding: 32px 24px;
             transition: transform 0.25s, box-shadow 0.25s;
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
         }
         .card:hover {
             transform: translateY(-6px);
@@ -196,6 +198,23 @@
             margin: 0 auto 16px;
             display: block;
             border: 3px solid var(--accent);
+        }
+        .card .btn-wrap {
+            margin-top: auto;
+            padding-top: 20px;
+        }
+        .card ul {
+            flex-grow: 1;
+        }
+        .card ul li {
+            color: var(--gray);
+            padding: 4px 0;
+        }
+        .card ul li i {
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-right: 8px;
+            width: 18px;
         }
 
         .btn {
@@ -356,6 +375,9 @@
             font-weight: 800;
             color: var(--accent);
         }
+        .stats .label {
+            color: var(--gray);
+        }
 
         .review-card {
             background: var(--bg-card);
@@ -416,12 +438,12 @@
             display: block;
         }
 
+        /* Упрощённые формы — только телефон и почта */
         .form-group {
             margin-bottom: 18px;
         }
         .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-group textarea {
             width: 100%;
             padding: 14px 18px;
             border-radius: 40px;
@@ -441,7 +463,7 @@
         .form-group textarea {
             border-radius: 20px;
             resize: vertical;
-            min-height: 100px;
+            min-height: 80px;
         }
         .form-row {
             display: flex;
@@ -612,8 +634,8 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
             transition: 0.2s;
         }
-        .float-chat a.whatsapp {
-            background: #25D366;
+        .float-chat a.max {
+            background: linear-gradient(135deg, #667eea, #764ba2);
         }
         .float-chat a.telegram {
             background: #0088cc;
@@ -900,12 +922,21 @@
                     </div>
                 </section>
 
-                <!-- ЦИФРЫ -->
+                <!-- СТАТИСТИКА (обновлена) -->
                 <section>
                     <div class="stats">
-                        <div class="item"><div class="number">5</div><div>лет опыта</div></div>
-                        <div class="item"><div class="number">120+</div><div>проектов</div></div>
-                        <div class="item"><div class="number">98%</div><div>довольных клиентов</div></div>
+                        <div class="item">
+                            <div class="number">🔥</div>
+                            <div class="label">Молодые и горячие</div>
+                        </div>
+                        <div class="item">
+                            <div class="number">120+</div>
+                            <div class="label">проектов</div>
+                        </div>
+                        <div class="item">
+                            <div class="number">98%</div>
+                            <div class="label">довольных клиентов</div>
+                        </div>
                     </div>
                 </section>
 
@@ -936,11 +967,11 @@
                     <h2 class="section-title">Часто задаваемые <span class="highlight">вопросы</span></h2>
                     <div class="faq-item open">
                         <div class="q">Сколько стоит сайт? <i class="fas fa-plus"></i></div>
-                        <div class="a">Цена зависит от сложности и функционала. Сайт-визитка от 30 000 руб, интернет-магазин от 100 000 руб. Отправьте заявку — мы сделаем точный расчет.</div>
+                        <div class="a">Цена зависит от сложности и функционала. Сайт-визитка от 10 000 руб, интернет-магазин от 40 000 руб. Отправьте заявку — мы сделаем точный расчет.</div>
                     </div>
                     <div class="faq-item">
                         <div class="q">Как долго делаете сайт? <i class="fas fa-plus"></i></div>
-                        <div class="a">Сроки зависят от проекта. Визитка — 5-7 дней, лендинг — 7-10 дней, интернет-магазин — 14-21 день.</div>
+                        <div class="a">Сроки зависят от проекта. Визитка — 3-5 дней, лендинг — 5-7 дней, интернет-магазин — 10-14 дней.</div>
                     </div>
                     <div class="faq-item">
                         <div class="q">Даете гарантию? <i class="fas fa-plus"></i></div>
@@ -952,17 +983,20 @@
                     </div>
                 </section>
 
-                <!-- ФОРМА -->
+                <!-- ФОРМА (упрощена) -->
                 <section>
                     <h2 class="section-title">Оставьте заявку — <span class="highlight">консультация бесплатно</span></h2>
                     <form id="mainForm" action="https://formsubmit.co/maxmar3131@gmail.com" method="POST">
                         <input type="hidden" name="_subject" value="Новая заявка с сайта ЗАО Баш сайт">
                         <input type="hidden" name="_captcha" value="false">
                         <div class="form-row">
-                            <div class="form-group"><input type="text" name="Имя" placeholder="Ваше имя" required /></div>
-                            <div class="form-group"><input type="tel" name="Телефон" placeholder="Телефон" required /></div>
+                            <div class="form-group">
+                                <input type="tel" name="Телефон" placeholder="Ваш телефон" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="Email" placeholder="Ваш email" required />
+                            </div>
                         </div>
-                        <div class="form-group"><input type="email" name="Email" placeholder="Email" required /></div>
                         <div class="form-group checkbox-group">
                             <input type="checkbox" name="Согласие" required />
                             <span>Согласен с <a href="#" style="color:var(--accent);">политикой конфиденциальности</a></span>
@@ -973,24 +1007,109 @@
             </div>
         </section>
 
-        <!-- ===== УСЛУГИ ===== -->
+        <!-- ===== УСЛУГИ (обновлены цены и список) ===== -->
         <section id="page-services" class="page">
             <div class="container">
                 <h2 class="section-title">Наши <span class="highlight">услуги</span></h2>
                 <div class="grid-3">
-                    <div class="card"><span class="badge">Популярный</span><i class="fas fa-file-alt"></i><h3>Сайт-визитка</h3><div class="price">от 30 000 ₽</div><ul style="color:var(--gray);margin:12px 0;"><li>✓ Уникальный дизайн</li><li>✓ Адаптивная верстка</li><li>✓ Настройка хостинга</li><li>✓ 3 месяца поддержки</li></ul><a href="#" class="btn btn-sm" data-page="contacts">Заказать</a></div>
-                    <div class="card"><span class="badge">Хит</span><i class="fas fa-bullseye"></i><h3>Лендинг</h3><div class="price">от 50 000 ₽</div><ul style="color:var(--gray);margin:12px 0;"><li>✓ Продающий дизайн</li><li>✓ А/В тестирование</li><li>✓ Интеграция с CRM</li><li>✓ Аналитика</li></ul><a href="#" class="btn btn-sm" data-page="contacts">Заказать</a></div>
-                    <div class="card"><span class="badge">Скидка</span><i class="fas fa-store"></i><h3>Интернет-магазин</h3><div class="price">от 100 000 ₽</div><ul style="color:var(--gray);margin:12px 0;"><li>✓ Каталог товаров</li><li>✓ Корзина и оплата</li><li>✓ Личный кабинет</li><li>✓ Интеграция с 1С</li></ul><a href="#" class="btn btn-sm" data-page="contacts">Заказать</a></div>
-                    <div class="card"><i class="fas fa-building"></i><h3>Корпоративный сайт</h3><div class="price">от 80 000 ₽</div><ul style="color:var(--gray);margin:12px 0;"><li>✓ Многостраничный</li><li>✓ Личный кабинет</li><li>✓ Система управления</li><li>✓ Безопасность</li></ul><a href="#" class="btn btn-sm" data-page="contacts">Заказать</a></div>
-                    <div class="card"><i class="fas fa-mobile-alt"></i><h3>Мобильная версия</h3><div class="price">от 20 000 ₽</div><ul style="color:var(--gray);margin:12px 0;"><li>✓ Адаптив под любые экраны</li><li>✓ Оптимизация скорости</li><li>✓ Удобный интерфейс</li></ul><a href="#" class="btn btn-sm" data-page="contacts">Заказать</a></div>
-                    <div class="card"><i class="fas fa-search"></i><h3>SEO-оптимизация</h3><div class="price">от 15 000 ₽/мес</div><ul style="color:var(--gray);margin:12px 0;"><li>✓ Аудит сайта</li><li>✓ Оптимизация контента</li><li>✓ Рост в поиске</li><li>✓ Ежемесячный отчет</li></ul><a href="#" class="btn btn-sm" data-page="contacts">Заказать</a></div>
+                    <div class="card">
+                        <span class="badge">Популярный</span>
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Сайт-визитка</h3>
+                        <div class="price">от 10 000 ₽</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Уникальный дизайн</li>
+                            <li><i class="fas fa-check"></i> Адаптивная верстка</li>
+                            <li><i class="fas fa-check"></i> Настройка хостинга</li>
+                            <li><i class="fas fa-check"></i> 3 месяца поддержки</li>
+                        </ul>
+                        <div class="btn-wrap">
+                            <a href="#" class="btn btn-sm" data-page="contacts">Заказать</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <span class="badge">Хит</span>
+                        <i class="fas fa-bullseye"></i>
+                        <h3>Лендинг</h3>
+                        <div class="price">от 20 000 ₽</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Продающий дизайн</li>
+                            <li><i class="fas fa-check"></i> А/В тестирование</li>
+                            <li><i class="fas fa-check"></i> Интеграция с CRM</li>
+                            <li><i class="fas fa-check"></i> Аналитика</li>
+                        </ul>
+                        <div class="btn-wrap">
+                            <a href="#" class="btn btn-sm" data-page="contacts">Заказать</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <span class="badge">Скидка</span>
+                        <i class="fas fa-store"></i>
+                        <h3>Интернет-магазин</h3>
+                        <div class="price">от 40 000 ₽</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Каталог товаров</li>
+                            <li><i class="fas fa-check"></i> Корзина и оплата</li>
+                            <li><i class="fas fa-check"></i> Личный кабинет</li>
+                            <li><i class="fas fa-check"></i> Интеграция с 1С</li>
+                        </ul>
+                        <div class="btn-wrap">
+                            <a href="#" class="btn btn-sm" data-page="contacts">Заказать</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <i class="fas fa-building"></i>
+                        <h3>Корпоративный сайт</h3>
+                        <div class="price">от 30 000 ₽</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Многостраничный</li>
+                            <li><i class="fas fa-check"></i> Личный кабинет</li>
+                            <li><i class="fas fa-check"></i> Система управления</li>
+                            <li><i class="fas fa-check"></i> Безопасность</li>
+                        </ul>
+                        <div class="btn-wrap">
+                            <a href="#" class="btn btn-sm" data-page="contacts">Заказать</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Мобильная версия</h3>
+                        <div class="price">от 8 000 ₽</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Оптимизация скорости</li>
+                            <li><i class="fas fa-check"></i> Удобный интерфейс</li>
+                            <li><i class="fas fa-check"></i> Touch-элементы</li>
+                        </ul>
+                        <div class="btn-wrap">
+                            <a href="#" class="btn btn-sm" data-page="contacts">Заказать</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <i class="fas fa-search"></i>
+                        <h3>SEO-оптимизация</h3>
+                        <div class="price">от 10 000 ₽/мес</div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Аудит сайта</li>
+                            <li><i class="fas fa-check"></i> Оптимизация контента</li>
+                            <li><i class="fas fa-check"></i> Рост в поиске</li>
+                            <li><i class="fas fa-check"></i> Ежемесячный отчет</li>
+                        </ul>
+                        <div class="btn-wrap">
+                            <a href="#" class="btn btn-sm" data-page="contacts">Заказать</a>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- СРАВНЕНИЕ (убрана адаптивность) -->
                 <div style="margin-top:50px; background:var(--bg-card); padding:30px; border-radius:var(--radius);">
                     <h3 style="margin-bottom:20px;">Что входит в каждую разработку</h3>
                     <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:20px; color:var(--gray);">
                         <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Дизайн-макет</div>
-                        <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Адаптивная верстка</div>
                         <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Настройка хостинга</div>
                         <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> 3 месяца поддержки</div>
                         <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Оптимизация скорости</div>
@@ -998,16 +1117,20 @@
                     </div>
                 </div>
 
+                <!-- ФОРМА РАСЧЁТА (упрощена) -->
                 <div style="margin-top:50px;">
                     <h3 class="section-title">Рассчитайте <span class="highlight">стоимость</span></h3>
                     <form id="calcForm" action="https://formsubmit.co/maxmar3131@gmail.com" method="POST">
                         <input type="hidden" name="_subject" value="Запрос расчета стоимости с сайта ЗАО Баш сайт">
                         <input type="hidden" name="_captcha" value="false">
                         <div class="form-row">
-                            <div class="form-group"><input type="text" name="Имя" placeholder="Ваше имя" required /></div>
-                            <div class="form-group"><input type="tel" name="Телефон" placeholder="Телефон" required /></div>
+                            <div class="form-group">
+                                <input type="tel" name="Телефон" placeholder="Ваш телефон" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="Email" placeholder="Ваш email" required />
+                            </div>
                         </div>
-                        <div class="form-group"><input type="email" name="Email" placeholder="Email" required /></div>
                         <div class="form-group">
                             <select name="Тип_сайта" style="width:100%; padding:14px 18px; border-radius:40px; border:1px solid #2d4059; background:#142433; color:#fff; font-size:1rem; font-family:var(--font);">
                                 <option value="">Выберите тип сайта</option>
@@ -1038,55 +1161,60 @@
                     <button data-filter="corp">Корпоративные</button>
                 </div>
                 <div class="grid-3" id="portfolioGrid">
-                    <!-- КЕЙС 1 -->
                     <div class="card" data-category="landing">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-globe"></i></div>
                         <h3>СтройТех Лендинг</h3>
                         <p style="color:var(--gray);">Увеличение заявок на 40%</p>
-                        <a href="#" class="btn btn-sm" data-case="stroytech" style="margin-top:12px;">Смотреть кейс</a>
+                        <div class="btn-wrap">
+                            <a href="#" class="btn btn-sm" data-case="stroytech">Смотреть кейс</a>
+                        </div>
                     </div>
-                    <!-- КЕЙС 2 -->
                     <div class="card" data-category="shop">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-shopping-cart"></i></div>
                         <h3>Модный Магазин</h3>
                         <p style="color:var(--gray);">Рост продаж на 60% за 3 месяца</p>
-                        <a href="#" class="btn btn-sm" data-case="modny" style="margin-top:12px;">Смотреть кейс</a>
+                        <div class="btn-wrap">
+                            <a href="#" class="btn btn-sm" data-case="modny">Смотреть кейс</a>
+                        </div>
                     </div>
-                    <!-- КЕЙС 3 -->
                     <div class="card" data-category="corp">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-briefcase"></i></div>
                         <h3>ТехноГарант Корп</h3>
                         <p style="color:var(--gray);">Удобство для сотрудников +50%</p>
-                        <a href="#" class="btn btn-sm" data-case="tehnogarant" style="margin-top:12px;">Смотреть кейс</a>
+                        <div class="btn-wrap">
+                            <a href="#" class="btn btn-sm" data-case="tehnogarant">Смотреть кейс</a>
+                        </div>
                     </div>
-                    <!-- КЕЙС 4 -->
                     <div class="card" data-category="landing">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-camera"></i></div>
                         <h3>Фотостудия Лендинг</h3>
                         <p style="color:var(--gray);">Запись клиентов +150%</p>
-                        <a href="#" class="btn btn-sm" data-case="fotostudio" style="margin-top:12px;">Смотреть кейс</a>
+                        <div class="btn-wrap">
+                            <a href="#" class="btn btn-sm" data-case="fotostudio">Смотреть кейс</a>
+                        </div>
                     </div>
-                    <!-- КЕЙС 5 -->
                     <div class="card" data-category="shop">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-gift"></i></div>
                         <h3>Подарки Онлайн</h3>
                         <p style="color:var(--gray);">Выручка выросла в 2 раза</p>
-                        <a href="#" class="btn btn-sm" data-case="podarki" style="margin-top:12px;">Смотреть кейс</a>
+                        <div class="btn-wrap">
+                            <a href="#" class="btn btn-sm" data-case="podarki">Смотреть кейс</a>
+                        </div>
                     </div>
-                    <!-- КЕЙС 6 -->
                     <div class="card" data-category="corp">
                         <div style="background:linear-gradient(135deg,#2d4059,#1a2a3f); height:180px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--accent); margin-bottom:16px;"><i class="fas fa-university"></i></div>
                         <h3>ФинансГрупп</h3>
                         <p style="color:var(--gray);">Безопасность и стиль</p>
-                        <a href="#" class="btn btn-sm" data-case="finansgrupp" style="margin-top:12px;">Смотреть кейс</a>
+                        <div class="btn-wrap">
+                            <a href="#" class="btn btn-sm" data-case="finansgrupp">Смотреть кейс</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ===== СТРАНИЦЫ КЕЙСОВ ===== -->
-
-        <!-- КЕЙС 1: СтройТех -->
+        <!-- (кейсы оставлены как в предыдущей версии, но с упрощёнными формами) -->
         <section id="case-stroytech" class="page">
             <div class="case-hero">
                 <div class="container">
@@ -1100,30 +1228,17 @@
             <div class="container">
                 <div class="case-content">
                     <h3>📋 Задача</h3>
-                    <p style="color:var(--gray);">Клиент — строительная компания «СтройТех» — обратился с запросом на создание продающего лендинга для услуги «Строительство домов под ключ». Основная цель — увеличить количество заявок с сайта.</p>
-                    
+                    <p style="color:var(--gray);">Клиент — строительная компания «СтройТех» — обратился с запросом на создание продающего лендинга для услуги «Строительство домов под ключ».</p>
                     <h3>💡 Решение</h3>
                     <ul>
-                        <li>Разработали структуру лендинга с акцентом на преимущества и портфолио</li>
-                        <li>Создали уникальный дизайн с использованием фирменных цветов компании</li>
-                        <li>Настроили формы захвата и интеграцию с CRM</li>
-                        <li>Оптимизировали скорость загрузки (90+ баллов в Google PageSpeed)</li>
+                        <li>Разработали структуру лендинга с акцентом на преимущества</li>
+                        <li>Создали уникальный дизайн</li>
+                        <li>Настроили формы захвата и CRM</li>
                     </ul>
-
-                    <h3>📊 Результат в цифрах</h3>
+                    <h3>📊 Результат</h3>
                     <div class="result-grid">
                         <div class="item"><div class="number">+40%</div><div class="label">Заявок</div></div>
                         <div class="item"><div class="number">25</div><div class="label">Заявок в день</div></div>
-                        <div class="item"><div class="number">12%</div><div class="label">Конверсия</div></div>
-                    </div>
-
-                    <h3>🛠 Стек технологий</h3>
-                    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Figma</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">HTML5/CSS3</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">JavaScript</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">PHP</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">CRM интеграция</span>
                     </div>
                 </div>
                 <div style="text-align:center; margin:30px 0;">
@@ -1132,7 +1247,6 @@
             </div>
         </section>
 
-        <!-- КЕЙС 2: Модный Магазин -->
         <section id="case-modny" class="page">
             <div class="case-hero">
                 <div class="container">
@@ -1146,30 +1260,17 @@
             <div class="container">
                 <div class="case-content">
                     <h3>📋 Задача</h3>
-                    <p style="color:var(--gray);">Клиент — интернет-магазин одежды — хотел увеличить продажи и улучшить пользовательский опыт. Старый магазин был медленным и неадаптивным.</p>
-                    
+                    <p style="color:var(--gray);">Интернет-магазин одежды хотел увеличить продажи и улучшить пользовательский опыт.</p>
                     <h3>💡 Решение</h3>
                     <ul>
-                        <li>Разработали современный дизайн с акцентом на визуал и удобство</li>
-                        <li>Сделали адаптивную версию для мобильных устройств</li>
-                        <li>Настроили умные фильтры и поиск</li>
-                        <li>Интегрировали систему оплаты и доставки</li>
+                        <li>Современный дизайн</li>
+                        <li>Адаптивная версия</li>
+                        <li>Умные фильтры и поиск</li>
                     </ul>
-
-                    <h3>📊 Результат в цифрах</h3>
+                    <h3>📊 Результат</h3>
                     <div class="result-grid">
                         <div class="item"><div class="number">+60%</div><div class="label">Продаж</div></div>
-                        <div class="item"><div class="number">3</div><div class="label">месяца до результата</div></div>
                         <div class="item"><div class="number">150+</div><div class="label">заказов в день</div></div>
-                    </div>
-
-                    <h3>🛠 Стек технологий</h3>
-                    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Figma</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">React</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Node.js</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">MongoDB</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Payment Gateway</span>
                     </div>
                 </div>
                 <div style="text-align:center; margin:30px 0;">
@@ -1178,7 +1279,6 @@
             </div>
         </section>
 
-        <!-- КЕЙС 3: ТехноГарант Корп -->
         <section id="case-tehnogarant" class="page">
             <div class="case-hero">
                 <div class="container">
@@ -1192,29 +1292,17 @@
             <div class="container">
                 <div class="case-content">
                     <h3>📋 Задача</h3>
-                    <p style="color:var(--gray);">Клиент — инжиниринговая компания — нуждался в современном корпоративном сайте для презентации услуг и привлечения крупных заказчиков.</p>
-                    
+                    <p style="color:var(--gray);">Создание современного корпоративного сайта для презентации услуг.</p>
                     <h3>💡 Решение</h3>
                     <ul>
-                        <li>Создали структуру с разделами услуг, проектов и команды</li>
-                        <li>Разработали строгий, но стильный корпоративный дизайн</li>
-                        <li>Настроили систему управления контентом</li>
-                        <li>Добавили личный кабинет для клиентов</li>
+                        <li>Структура с разделами услуг и проектов</li>
+                        <li>Строгий корпоративный дизайн</li>
+                        <li>Система управления контентом</li>
                     </ul>
-
-                    <h3>📊 Результат в цифрах</h3>
+                    <h3>📊 Результат</h3>
                     <div class="result-grid">
-                        <div class="item"><div class="number">+50%</div><div class="label">Удобство сотрудников</div></div>
+                        <div class="item"><div class="number">+50%</div><div class="label">Удобство</div></div>
                         <div class="item"><div class="number">30+</div><div class="label">крупных заказчиков</div></div>
-                        <div class="item"><div class="number">4.8</div><div class="label">оценка клиентов</div></div>
-                    </div>
-
-                    <h3>🛠 Стек технологий</h3>
-                    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Figma</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">WordPress</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">PHP</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">MySQL</span>
                     </div>
                 </div>
                 <div style="text-align:center; margin:30px 0;">
@@ -1223,7 +1311,6 @@
             </div>
         </section>
 
-        <!-- КЕЙС 4: Фотостудия Лендинг -->
         <section id="case-fotostudio" class="page">
             <div class="case-hero">
                 <div class="container">
@@ -1237,29 +1324,17 @@
             <div class="container">
                 <div class="case-content">
                     <h3>📋 Задача</h3>
-                    <p style="color:var(--gray);">Клиент — фотостудия — хотел привлекать больше клиентов через интернет. Нужен был яркий и продающий лендинг с портфолио.</p>
-                    
+                    <p style="color:var(--gray);">Яркий лендинг для привлечения клиентов в фотостудию.</p>
                     <h3>💡 Решение</h3>
                     <ul>
-                        <li>Разработали визуально яркий лендинг с портфолио и отзывами</li>
-                        <li>Добавили интерактивную галерею</li>
-                        <li>Настроили форму записи онлайн</li>
-                        <li>Оптимизировали для мобильных устройств</li>
+                        <li>Визуально яркий дизайн</li>
+                        <li>Интерактивная галерея</li>
+                        <li>Форма записи онлайн</li>
                     </ul>
-
-                    <h3>📊 Результат в цифрах</h3>
+                    <h3>📊 Результат</h3>
                     <div class="result-grid">
                         <div class="item"><div class="number">+150%</div><div class="label">Запись клиентов</div></div>
                         <div class="item"><div class="number">200+</div><div class="label">заявок в месяц</div></div>
-                        <div class="item"><div class="number">18%</div><div class="label">конверсия</div></div>
-                    </div>
-
-                    <h3>🛠 Стек технологий</h3>
-                    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Figma</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">HTML5/CSS3</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">JavaScript</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">PHP</span>
                     </div>
                 </div>
                 <div style="text-align:center; margin:30px 0;">
@@ -1268,7 +1343,6 @@
             </div>
         </section>
 
-        <!-- КЕЙС 5: Подарки Онлайн -->
         <section id="case-podarki" class="page">
             <div class="case-hero">
                 <div class="container">
@@ -1282,29 +1356,17 @@
             <div class="container">
                 <div class="case-content">
                     <h3>📋 Задача</h3>
-                    <p style="color:var(--gray);">Клиент — интернет-магазин подарков — хотел увеличить выручку и улучшить юзабилити.</p>
-                    
+                    <p style="color:var(--gray);">Увеличение выручки и улучшение юзабилити.</p>
                     <h3>💡 Решение</h3>
                     <ul>
-                        <li>Разработали уютный и праздничный дизайн</li>
-                        <li>Настроили систему рекомендаций товаров</li>
-                        <li>Интегрировали популярные способы оплаты</li>
-                        <li>Добавили систему лояльности</li>
+                        <li>Уютный дизайн</li>
+                        <li>Система рекомендаций</li>
+                        <li>Система лояльности</li>
                     </ul>
-
-                    <h3>📊 Результат в цифрах</h3>
+                    <h3>📊 Результат</h3>
                     <div class="result-grid">
                         <div class="item"><div class="number">×2</div><div class="label">Выручка</div></div>
                         <div class="item"><div class="number">500+</div><div class="label">заказов в день</div></div>
-                        <div class="item"><div class="number">4.9</div><div class="label">оценка клиентов</div></div>
-                    </div>
-
-                    <h3>🛠 Стек технологий</h3>
-                    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Figma</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Vue.js</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Django</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">PostgreSQL</span>
                     </div>
                 </div>
                 <div style="text-align:center; margin:30px 0;">
@@ -1313,7 +1375,6 @@
             </div>
         </section>
 
-        <!-- КЕЙС 6: ФинансГрупп -->
         <section id="case-finansgrupp" class="page">
             <div class="case-hero">
                 <div class="container">
@@ -1327,30 +1388,17 @@
             <div class="container">
                 <div class="case-content">
                     <h3>📋 Задача</h3>
-                    <p style="color:var(--gray);">Клиент — финансовая компания — нуждался в современном сайте с высоким уровнем безопасности и презентабельным дизайном.</p>
-                    
+                    <p style="color:var(--gray);">Современный сайт с высоким уровнем безопасности.</p>
                     <h3>💡 Решение</h3>
                     <ul>
-                        <li>Разработали строгий, но стильный дизайн</li>
-                        <li>Настроили многоуровневую систему безопасности</li>
-                        <li>Сделали интеграцию с банковскими системами</li>
-                        <li>Добавили личный кабинет для клиентов</li>
+                        <li>Строгий дизайн</li>
+                        <li>Многоуровневая безопасность</li>
+                        <li>Личный кабинет</li>
                     </ul>
-
-                    <h3>📊 Результат в цифрах</h3>
+                    <h3>📊 Результат</h3>
                     <div class="result-grid">
                         <div class="item"><div class="number">100%</div><div class="label">Безопасность</div></div>
                         <div class="item"><div class="number">50+</div><div class="label">корпоративных клиентов</div></div>
-                        <div class="item"><div class="number">5.0</div><div class="label">оценка клиентов</div></div>
-                    </div>
-
-                    <h3>🛠 Стек технологий</h3>
-                    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Figma</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">React</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">Node.js</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">PostgreSQL</span>
-                        <span style="background:var(--primary); padding:6px 16px; border-radius:40px; color:var(--gray);">SSL/HTTPS</span>
                     </div>
                 </div>
                 <div style="text-align:center; margin:30px 0;">
@@ -1359,23 +1407,23 @@
             </div>
         </section>
 
-        <!-- ===== О НАС ===== -->
+        <!-- ===== О НАС (только 2 человека) ===== -->
         <section id="page-about" class="page">
             <div class="container">
                 <h2 class="section-title">О <span class="highlight">нас</span></h2>
                 <p style="color:var(--gray); font-size:1.2rem; max-width:700px; margin-bottom:30px;">
-                    Мы — команда профессионалов с 5-летним опытом в создании сайтов. Помогаем бизнесу расти в интернете с 2019 года.
+                    Мы — молодая и энергичная команда, которая делает сайты, приносящие клиентов. Горим своим делом и любим сложные задачи.
                 </p>
 
                 <div class="grid-4" style="margin:30px 0;">
                     <div class="card" style="text-align:center;"><i class="fas fa-eye"></i><h3>Миссия</h3><p>Помогать бизнесу расти в интернете через качественные сайты</p></div>
                     <div class="card" style="text-align:center;"><i class="fas fa-handshake"></i><h3>Ценность</h3><p>Доверие, качество и результат</p></div>
                     <div class="card" style="text-align:center;"><i class="fas fa-clock"></i><h3>Сроки</h3><p>Всегда сдаем проекты в срок</p></div>
-                    <div class="card" style="text-align:center;"><i class="fas fa-users"></i><h3>Команда</h3><p>10+ опытных специалистов</p></div>
+                    <div class="card" style="text-align:center;"><i class="fas fa-fire"></i><h3>Энергия</h3><p>Молодые, горячие, креативные</p></div>
                 </div>
 
                 <h3 style="margin-top:40px; margin-bottom:20px;">Наша <span style="color:var(--accent);">команда</span></h3>
-                <div class="grid-3">
+                <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width:700px; margin:0 auto;">
                     <div class="card text-center">
                         <img src="team-1.png" alt="Анна Петрова" class="team-photo" />
                         <h4>Анна Петрова</h4>
@@ -1389,15 +1437,6 @@
                         <img src="team-2.png" alt="Максим Иванов" class="team-photo" />
                         <h4>Максим Иванов</h4>
                         <p style="color:var(--gray);">Senior Developer</p>
-                        <div style="display:flex;justify-content:center;gap:12px;margin-top:10px;">
-                            <a href="https://vk.com/id594341269" target="_blank"><i class="fab fa-vk" style="font-size:1.4rem;"></i></a>
-                            <a href="https://t.me/Lincink" target="_blank"><i class="fab fa-telegram" style="font-size:1.4rem;"></i></a>
-                        </div>
-                    </div>
-                    <div class="card text-center">
-                        <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#f4a460,#ffb87a);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:800;color:#0d1b2a;border:3px solid var(--accent);">ДС</div>
-                        <h4>Дмитрий Соколов</h4>
-                        <p style="color:var(--gray);">SEO-специалист</p>
                         <div style="display:flex;justify-content:center;gap:12px;margin-top:10px;">
                             <a href="https://vk.com/id594341269" target="_blank"><i class="fab fa-vk" style="font-size:1.4rem;"></i></a>
                             <a href="https://t.me/Lincink" target="_blank"><i class="fab fa-telegram" style="font-size:1.4rem;"></i></a>
@@ -1424,21 +1463,25 @@
             </div>
         </section>
 
-        <!-- ===== КОНТАКТЫ ===== -->
+        <!-- ===== КОНТАКТЫ (упрощены) ===== -->
         <section id="page-contacts" class="page">
             <div class="container">
                 <h2 class="section-title"><span class="highlight">Контакты</span></h2>
                 <div style="display:flex;flex-wrap:wrap;gap:40px;">
                     <div style="flex:1 1 300px;">
-                        <h3 style="margin-bottom:16px;">Напишите <span style="color:var(--accent);">нам</span></h3>
+                        <h3 style="margin-bottom:16px;">Свяжитесь <span style="color:var(--accent);">с нами</span></h3>
                         <form id="contactForm" action="https://formsubmit.co/maxmar3131@gmail.com" method="POST">
                             <input type="hidden" name="_subject" value="Новое сообщение с сайта ЗАО Баш сайт">
                             <input type="hidden" name="_captcha" value="false">
-                            <div class="form-group"><input type="text" name="Имя" placeholder="Ваше имя" required /></div>
-                            <div class="form-group"><input type="tel" name="Телефон" placeholder="Телефон" required /></div>
-                            <div class="form-group"><input type="email" name="Email" placeholder="Email" required /></div>
-                            <div class="form-group"><input type="text" name="Город" placeholder="Город" /></div>
-                            <div class="form-group"><textarea name="Сообщение" placeholder="Сообщение" rows="4"></textarea></div>
+                            <div class="form-group">
+                                <input type="tel" name="Телефон" placeholder="Ваш телефон" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="Email" placeholder="Ваш email" required />
+                            </div>
+                            <div class="form-group">
+                                <textarea name="Сообщение" placeholder="Сообщение" rows="4"></textarea>
+                            </div>
                             <div class="form-group checkbox-group">
                                 <input type="checkbox" name="Согласие" required />
                                 <span>Согласен с политикой конфиденциальности</span>
@@ -1455,7 +1498,7 @@
                             <p style="margin:12px 0;"><i class="fas fa-clock" style="color:var(--accent);width:24px;"></i> Ежедневно: 9:00 – 20:00</p>
                             <h4 style="margin:24px 0 12px;">Мы в соцсетях</h4>
                             <div style="display:flex; gap:16px; font-size:2rem;">
-                                <a href="https://wa.me/qr/S7DLQGRK5Z37G1" target="_blank" style="color:#25D366;"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://max.ru/u/f9LHodD0cOKEPv03B7DhPtqQQAnMSy1gax2TNaj_rIfWQQ-L_3iGsfy1v5k" target="_blank" style="color:#667eea;"><i class="fas fa-link"></i></a>
                                 <a href="https://t.me/Lincink" target="_blank" style="color:#0088cc;"><i class="fab fa-telegram"></i></a>
                                 <a href="https://vk.com/id594341269" target="_blank" style="color:#0077ff;"><i class="fab fa-vk"></i></a>
                             </div>
@@ -1476,9 +1519,15 @@
 
     <!-- ПЛАВАЮЩИЕ КНОПКИ -->
     <div class="float-chat">
-        <a href="https://t.me/Lincink" target="_blank" class="telegram" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
-        <a href="https://wa.me/qr/S7DLQGRK5Z37G1" target="_blank" class="whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://vk.com/id594341269" target="_blank" class="vk" aria-label="VK"><i class="fab fa-vk"></i></a>
+        <a href="https://max.ru/u/f9LHodD0cOKEPv03B7DhPtqQQAnMSy1gax2TNaj_rIfWQQ-L_3iGsfy1v5k" target="_blank" class="max" aria-label="MAX">
+            <i class="fas fa-link"></i>
+        </a>
+        <a href="https://t.me/Lincink" target="_blank" class="telegram" aria-label="Telegram">
+            <i class="fab fa-telegram-plane"></i>
+        </a>
+        <a href="https://vk.com/id594341269" target="_blank" class="vk" aria-label="VK">
+            <i class="fab fa-vk"></i>
+        </a>
     </div>
 
     <!-- КНОПКА НАВЕРХ -->
@@ -1508,7 +1557,7 @@
                     <a href="tel:89066015868">8 906 601-58-68</a>
                     <a href="mailto:maxmar3131@gmail.com">maxmar3131@gmail.com</a>
                     <div class="social-links">
-                        <a href="https://wa.me/qr/S7DLQGRK5Z37G1" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://max.ru/u/f9LHodD0cOKEPv03B7DhPtqQQAnMSy1gax2TNaj_rIfWQQ-L_3iGsfy1v5k" target="_blank"><i class="fas fa-link"></i></a>
                         <a href="https://t.me/Lincink" target="_blank"><i class="fab fa-telegram"></i></a>
                         <a href="https://vk.com/id594341269" target="_blank"><i class="fab fa-vk"></i></a>
                     </div>
@@ -1620,7 +1669,6 @@
                 }
             }
 
-            // Навигация по основным страницам
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1633,7 +1681,6 @@
                 });
             });
 
-            // Обработчики для кнопок "Смотреть кейс"
             document.querySelectorAll('[data-case]').forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1644,7 +1691,6 @@
                 });
             });
 
-            // Обработчики для "Назад в портфолио"
             document.querySelectorAll('.case-hero .breadcrumb a').forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1681,7 +1727,6 @@
                 navigate('index');
             }
 
-            // FAQ
             document.querySelectorAll('.faq-item .q').forEach(q => {
                 q.addEventListener('click', function() {
                     const parent = this.closest('.faq-item');
@@ -1689,7 +1734,6 @@
                 });
             });
 
-            // Фильтр портфолио
             const filterBtns = document.querySelectorAll('.filter-btns button');
             const portfolioItems = document.querySelectorAll('#portfolioGrid .card');
             filterBtns.forEach(btn => {
