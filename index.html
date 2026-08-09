@@ -438,52 +438,6 @@
             display: block;
         }
 
-        /* Упрощённые формы — только телефон и почта */
-        .form-group {
-            margin-bottom: 18px;
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px 18px;
-            border-radius: 40px;
-            border: 1px solid #2d4059;
-            background: #142433;
-            color: #fff;
-            font-size: 1rem;
-            transition: 0.2s;
-            font-family: var(--font);
-        }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(244, 164, 96, 0.2);
-        }
-        .form-group textarea {
-            border-radius: 20px;
-            resize: vertical;
-            min-height: 80px;
-        }
-        .form-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-        }
-        .form-row .form-group {
-            flex: 1 1 200px;
-        }
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .checkbox-group input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            accent-color: var(--accent);
-        }
-
         .badge {
             background: var(--accent);
             color: #0d1b2a;
@@ -922,7 +876,7 @@
                     </div>
                 </section>
 
-                <!-- СТАТИСТИКА (обновлена) -->
+                <!-- СТАТИСТИКА -->
                 <section>
                     <div class="stats">
                         <div class="item">
@@ -982,32 +936,10 @@
                         <div class="a">Оставьте заявку, мы проведем брифинг, соберем требования и предложим оптимальное решение.</div>
                     </div>
                 </section>
-
-                <!-- ФОРМА (упрощена) -->
-                <section>
-                    <h2 class="section-title">Оставьте заявку — <span class="highlight">консультация бесплатно</span></h2>
-                    <form id="mainForm" action="https://formsubmit.co/maxmar3131@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="Новая заявка с сайта ЗАО Баш сайт">
-                        <input type="hidden" name="_captcha" value="false">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="tel" name="Телефон" placeholder="Ваш телефон" required />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="Email" placeholder="Ваш email" required />
-                            </div>
-                        </div>
-                        <div class="form-group checkbox-group">
-                            <input type="checkbox" name="Согласие" required />
-                            <span>Согласен с <a href="#" style="color:var(--accent);">политикой конфиденциальности</a></span>
-                        </div>
-                        <button type="submit" class="btn">Отправить заявку</button>
-                    </form>
-                </section>
             </div>
         </section>
 
-        <!-- ===== УСЛУГИ (обновлены цены и список) ===== -->
+        <!-- ===== УСЛУГИ ===== -->
         <section id="page-services" class="page">
             <div class="container">
                 <h2 class="section-title">Наши <span class="highlight">услуги</span></h2>
@@ -1105,7 +1037,6 @@
                     </div>
                 </div>
 
-                <!-- СРАВНЕНИЕ (убрана адаптивность) -->
                 <div style="margin-top:50px; background:var(--bg-card); padding:30px; border-radius:var(--radius);">
                     <h3 style="margin-bottom:20px;">Что входит в каждую разработку</h3>
                     <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:20px; color:var(--gray);">
@@ -1115,37 +1046,6 @@
                         <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Оптимизация скорости</div>
                         <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Обучение работе</div>
                     </div>
-                </div>
-
-                <!-- ФОРМА РАСЧЁТА (упрощена) -->
-                <div style="margin-top:50px;">
-                    <h3 class="section-title">Рассчитайте <span class="highlight">стоимость</span></h3>
-                    <form id="calcForm" action="https://formsubmit.co/maxmar3131@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="Запрос расчета стоимости с сайта ЗАО Баш сайт">
-                        <input type="hidden" name="_captcha" value="false">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="tel" name="Телефон" placeholder="Ваш телефон" required />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="Email" placeholder="Ваш email" required />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <select name="Тип_сайта" style="width:100%; padding:14px 18px; border-radius:40px; border:1px solid #2d4059; background:#142433; color:#fff; font-size:1rem; font-family:var(--font);">
-                                <option value="">Выберите тип сайта</option>
-                                <option>Сайт-визитка</option>
-                                <option>Лендинг</option>
-                                <option>Интернет-магазин</option>
-                                <option>Корпоративный сайт</option>
-                            </select>
-                        </div>
-                        <div class="form-group checkbox-group">
-                            <input type="checkbox" name="Согласие" required />
-                            <span>Согласен с политикой конфиденциальности</span>
-                        </div>
-                        <button type="submit" class="btn">Получить расчет</button>
-                    </form>
                 </div>
             </div>
         </section>
@@ -1214,7 +1114,6 @@
         </section>
 
         <!-- ===== СТРАНИЦЫ КЕЙСОВ ===== -->
-        <!-- (кейсы оставлены как в предыдущей версии, но с упрощёнными формами) -->
         <section id="case-stroytech" class="page">
             <div class="case-hero">
                 <div class="container">
@@ -1407,7 +1306,7 @@
             </div>
         </section>
 
-        <!-- ===== О НАС (только 2 человека) ===== -->
+        <!-- ===== О НАС ===== -->
         <section id="page-about" class="page">
             <div class="container">
                 <h2 class="section-title">О <span class="highlight">нас</span></h2>
@@ -1463,41 +1362,32 @@
             </div>
         </section>
 
-        <!-- ===== КОНТАКТЫ (упрощены) ===== -->
+        <!-- ===== КОНТАКТЫ (БЕЗ ФОРМ) ===== -->
         <section id="page-contacts" class="page">
             <div class="container">
                 <h2 class="section-title"><span class="highlight">Контакты</span></h2>
-                <div style="display:flex;flex-wrap:wrap;gap:40px;">
-                    <div style="flex:1 1 300px;">
-                        <h3 style="margin-bottom:16px;">Свяжитесь <span style="color:var(--accent);">с нами</span></h3>
-                        <form id="contactForm" action="https://formsubmit.co/maxmar3131@gmail.com" method="POST">
-                            <input type="hidden" name="_subject" value="Новое сообщение с сайта ЗАО Баш сайт">
-                            <input type="hidden" name="_captcha" value="false">
-                            <div class="form-group">
-                                <input type="tel" name="Телефон" placeholder="Ваш телефон" required />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="Email" placeholder="Ваш email" required />
-                            </div>
-                            <div class="form-group">
-                                <textarea name="Сообщение" placeholder="Сообщение" rows="4"></textarea>
-                            </div>
-                            <div class="form-group checkbox-group">
-                                <input type="checkbox" name="Согласие" required />
-                                <span>Согласен с политикой конфиденциальности</span>
-                            </div>
-                            <button type="submit" class="btn">Отправить</button>
-                        </form>
-                    </div>
-                    <div style="flex:1 1 300px;">
-                        <div style="background:var(--bg-card);padding:30px;border-radius:var(--radius);">
+                <div style="display:flex;flex-wrap:wrap;gap:40px; justify-content:center;">
+                    <div style="flex:1 1 400px; max-width:500px;">
+                        <div style="background:var(--bg-card);padding:40px;border-radius:var(--radius);">
                             <h3 style="margin-bottom:20px;">Контактная <span style="color:var(--accent);">информация</span></h3>
-                            <p style="margin:12px 0;"><i class="fas fa-phone" style="color:var(--accent);width:24px;"></i> <a href="tel:89066015868">8 906 601-58-68</a></p>
-                            <p style="margin:12px 0;"><i class="fas fa-envelope" style="color:var(--accent);width:24px;"></i> <a href="mailto:maxmar3131@gmail.com">maxmar3131@gmail.com</a></p>
-                            <p style="margin:12px 0;"><i class="fas fa-map-marker-alt" style="color:var(--accent);width:24px;"></i> Москва, ул. Тверская 12</p>
-                            <p style="margin:12px 0;"><i class="fas fa-clock" style="color:var(--accent);width:24px;"></i> Ежедневно: 9:00 – 20:00</p>
-                            <h4 style="margin:24px 0 12px;">Мы в соцсетях</h4>
-                            <div style="display:flex; gap:16px; font-size:2rem;">
+                            <p style="margin:16px 0; font-size:1.2rem;">
+                                <i class="fas fa-phone" style="color:var(--accent);width:30px;"></i> 
+                                <a href="tel:89066015868" style="color:#fff; font-weight:600;">8 906 601-58-68</a>
+                            </p>
+                            <p style="margin:16px 0; font-size:1.2rem;">
+                                <i class="fas fa-envelope" style="color:var(--accent);width:30px;"></i> 
+                                <a href="mailto:maxmar3131@gmail.com" style="color:#fff; font-weight:600;">maxmar3131@gmail.com</a>
+                            </p>
+                            <p style="margin:16px 0; font-size:1.2rem;">
+                                <i class="fas fa-map-marker-alt" style="color:var(--accent);width:30px;"></i> 
+                                <span style="color:#fff;">Москва, ул. Тверская 12</span>
+                            </p>
+                            <p style="margin:16px 0; font-size:1.2rem;">
+                                <i class="fas fa-clock" style="color:var(--accent);width:30px;"></i> 
+                                <span style="color:#fff;">Ежедневно: 9:00 – 20:00</span>
+                            </p>
+                            <h4 style="margin:30px 0 16px;">Мы в соцсетях</h4>
+                            <div style="display:flex; gap:20px; font-size:2.2rem;">
                                 <a href="https://max.ru/u/f9LHodD0cOKEPv03B7DhPtqQQAnMSy1gax2TNaj_rIfWQQ-L_3iGsfy1v5k" target="_blank" style="color:#667eea;"><i class="fas fa-link"></i></a>
                                 <a href="https://t.me/Lincink" target="_blank" style="color:#0088cc;"><i class="fab fa-telegram"></i></a>
                                 <a href="https://vk.com/id594341269" target="_blank" style="color:#0077ff;"><i class="fab fa-vk"></i></a>
@@ -1507,7 +1397,7 @@
                             <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j&amp;source=constructor" 
                                     allowfullscreen="true"
                                     loading="lazy"
-                                    style="height:200px;">
+                                    style="height:220px;">
                             </iframe>
                         </div>
                     </div>
@@ -1791,14 +1681,6 @@
                         el.classList.add('visible');
                     }
                 }, 100 * i);
-            });
-
-            document.querySelectorAll('form').forEach(form => {
-                form.addEventListener('submit', function(e) {
-                    setTimeout(() => {
-                        alert('✅ Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
-                    }, 100);
-                });
             });
 
         })();
