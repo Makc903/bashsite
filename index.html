@@ -217,6 +217,36 @@
             width: 18px;
         }
 
+        /* Стильные бейджи вместо "Хит", "Популярный", "Скидка" */
+        .badge {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            background: transparent;
+            color: var(--accent);
+            border: 1.5px solid var(--accent);
+        }
+        .badge.hit {
+            background: rgba(244, 164, 96, 0.15);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .badge.popular {
+            background: rgba(244, 164, 96, 0.10);
+            border-color: #f4a460;
+            color: #f4a460;
+        }
+        .badge.sale {
+            background: rgba(255, 107, 53, 0.12);
+            border-color: #ff6b35;
+            color: #ff6b35;
+        }
+
         .btn {
             display: inline-block;
             background: var(--accent);
@@ -379,36 +409,6 @@
             color: var(--gray);
         }
 
-        .review-card {
-            background: var(--bg-card);
-            padding: 24px;
-            border-radius: var(--radius);
-        }
-        .review-card .stars {
-            color: #f4a460;
-            letter-spacing: 2px;
-            font-size: 1.2rem;
-        }
-        .review-card .reviewer {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 16px;
-        }
-        .review-card .reviewer .avatar {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            object-fit: cover;
-            background: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0d1b2a;
-        }
-
         .faq-item {
             background: var(--bg-card);
             margin-bottom: 12px;
@@ -435,30 +435,6 @@
             display: none;
         }
         .faq-item.open .a {
-            display: block;
-        }
-
-        .badge {
-            background: var(--accent);
-            color: #0d1b2a;
-            font-weight: 700;
-            font-size: 0.7rem;
-            padding: 4px 12px;
-            border-radius: 40px;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-
-        .map-container {
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-            margin: 20px 0;
-        }
-        .map-container iframe {
-            width: 100%;
-            height: 350px;
-            border: none;
             display: block;
         }
 
@@ -734,9 +710,6 @@
                 height: 42px;
                 font-size: 1.2rem;
             }
-            .map-container iframe {
-                height: 250px;
-            }
             .case-hero h1 {
                 font-size: 2rem;
             }
@@ -775,9 +748,6 @@
             }
             .problem-solution .image .label {
                 font-size: 1rem;
-            }
-            .map-container iframe {
-                height: 200px;
             }
             .case-hero h1 {
                 font-size: 1.6rem;
@@ -876,11 +846,11 @@
                     </div>
                 </section>
 
-                <!-- СТАТИСТИКА -->
+                <!-- СТАТИСТИКА (с молнией вместо огня) -->
                 <section>
                     <div class="stats">
                         <div class="item">
-                            <div class="number">🔥</div>
+                            <div class="number">⚡</div>
                             <div class="label">Молодые и горячие</div>
                         </div>
                         <div class="item">
@@ -894,34 +864,14 @@
                     </div>
                 </section>
 
-                <!-- ОТЗЫВЫ -->
-                <section>
-                    <h2 class="section-title">Отзывы <span class="highlight">клиентов</span></h2>
-                    <div class="grid-3">
-                        <div class="review-card">
-                            <div class="stars">★★★★★</div>
-                            <p style="color:var(--gray);margin:12px 0;">"Сделали крутой лендинг, продажи выросли в 2 раза за месяц. Очень довольны результатом!"</p>
-                            <div class="reviewer"><div class="avatar">А</div><div><strong>Алексей</strong><br><span style="color:var(--gray);font-size:0.85rem;">CEO "ТехноСтарт"</span></div></div>
-                        </div>
-                        <div class="review-card">
-                            <div class="stars">★★★★★</div>
-                            <p style="color:var(--gray);margin:12px 0;">"Профессиональный подход, все сделали быстро и качественно. Рекомендую!"</p>
-                            <div class="reviewer"><div class="avatar">М</div><div><strong>Мария</strong><br><span style="color:var(--gray);font-size:0.85rem;">Владелец "БьютиСтудия"</span></div></div>
-                        </div>
-                        <div class="review-card">
-                            <div class="stars">★★★★★</div>
-                            <p style="color:var(--gray);margin:12px 0;">"Отличная команда, решили все наши задачи. Сайт работает как часы уже год."</p>
-                            <div class="reviewer"><div class="avatar">И</div><div><strong>Иван</strong><br><span style="color:var(--gray);font-size:0.85rem;">Директор "СтройГарант"</span></div></div>
-                        </div>
-                    </div>
-                </section>
+                <!-- ❌ БЛОК "ОТЗЫВЫ" УДАЛЁН -->
 
                 <!-- FAQ -->
                 <section>
                     <h2 class="section-title">Часто задаваемые <span class="highlight">вопросы</span></h2>
                     <div class="faq-item open">
                         <div class="q">Сколько стоит сайт? <i class="fas fa-plus"></i></div>
-                        <div class="a">Цена зависит от сложности и функционала. Сайт-визитка от 10 000 руб, интернет-магазин от 40 000 руб. Отправьте заявку — мы сделаем точный расчет.</div>
+                        <div class="a">Цена зависит от сложности и функционала. Сайт-визитка от 10 000 руб, интернет-магазин от 40 000 руб. Оставьте заявку — мы сделаем точный расчет.</div>
                     </div>
                     <div class="faq-item">
                         <div class="q">Как долго делаете сайт? <i class="fas fa-plus"></i></div>
@@ -936,6 +886,11 @@
                         <div class="a">Оставьте заявку, мы проведем брифинг, соберем требования и предложим оптимальное решение.</div>
                     </div>
                 </section>
+
+                <!-- КНОПКА "ОСТАВИТЬ ЗАЯВКУ" → ВЕДЁТ НА КОНТАКТЫ -->
+                <section style="text-align:center; padding-top:0;">
+                    <a href="#" class="btn" data-page="contacts" style="font-size:1.2rem; padding:16px 50px;">Оставить заявку</a>
+                </section>
             </div>
         </section>
 
@@ -945,7 +900,7 @@
                 <h2 class="section-title">Наши <span class="highlight">услуги</span></h2>
                 <div class="grid-3">
                     <div class="card">
-                        <span class="badge">Популярный</span>
+                        <span class="badge popular">Популярный</span>
                         <i class="fas fa-file-alt"></i>
                         <h3>Сайт-визитка</h3>
                         <div class="price">от 10 000 ₽</div>
@@ -961,7 +916,7 @@
                     </div>
 
                     <div class="card">
-                        <span class="badge">Хит</span>
+                        <span class="badge hit">Хит</span>
                         <i class="fas fa-bullseye"></i>
                         <h3>Лендинг</h3>
                         <div class="price">от 20 000 ₽</div>
@@ -977,7 +932,7 @@
                     </div>
 
                     <div class="card">
-                        <span class="badge">Скидка</span>
+                        <span class="badge sale">Скидка</span>
                         <i class="fas fa-store"></i>
                         <h3>Интернет-магазин</h3>
                         <div class="price">от 40 000 ₽</div>
@@ -1012,7 +967,7 @@
                         <h3>Мобильная версия</h3>
                         <div class="price">от 8 000 ₽</div>
                         <ul>
-                            <li><i class="fas fa-check"></i> Оптимизация скорости</li>
+                            <li><i class="fas fa-check"></i> Адаптивный дизайн</li>
                             <li><i class="fas fa-check"></i> Удобный интерфейс</li>
                             <li><i class="fas fa-check"></i> Touch-элементы</li>
                         </ul>
@@ -1043,9 +998,14 @@
                         <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Дизайн-макет</div>
                         <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Настройка хостинга</div>
                         <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> 3 месяца поддержки</div>
-                        <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Оптимизация скорости</div>
+                        <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Техническая оптимизация</div>
                         <div><i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i> Обучение работе</div>
                     </div>
+                </div>
+
+                <!-- КНОПКА НА КОНТАКТЫ -->
+                <div style="text-align:center; margin-top:40px;">
+                    <a href="#" class="btn" data-page="contacts" style="font-size:1.2rem; padding:16px 50px;">Оставить заявку</a>
                 </div>
             </div>
         </section>
@@ -1109,6 +1069,11 @@
                             <a href="#" class="btn btn-sm" data-case="finansgrupp">Смотреть кейс</a>
                         </div>
                     </div>
+                </div>
+
+                <!-- КНОПКА НА КОНТАКТЫ -->
+                <div style="text-align:center; margin-top:40px;">
+                    <a href="#" class="btn" data-page="contacts" style="font-size:1.2rem; padding:16px 50px;">Оставить заявку</a>
                 </div>
             </div>
         </section>
@@ -1306,7 +1271,7 @@
             </div>
         </section>
 
-        <!-- ===== О НАС ===== -->
+        <!-- ===== О НАС (новые имена, без ссылок) ===== -->
         <section id="page-about" class="page">
             <div class="container">
                 <h2 class="section-title">О <span class="highlight">нас</span></h2>
@@ -1318,87 +1283,54 @@
                     <div class="card" style="text-align:center;"><i class="fas fa-eye"></i><h3>Миссия</h3><p>Помогать бизнесу расти в интернете через качественные сайты</p></div>
                     <div class="card" style="text-align:center;"><i class="fas fa-handshake"></i><h3>Ценность</h3><p>Доверие, качество и результат</p></div>
                     <div class="card" style="text-align:center;"><i class="fas fa-clock"></i><h3>Сроки</h3><p>Всегда сдаем проекты в срок</p></div>
-                    <div class="card" style="text-align:center;"><i class="fas fa-fire"></i><h3>Энергия</h3><p>Молодые, горячие, креативные</p></div>
+                    <div class="card" style="text-align:center;"><i class="fas fa-bolt"></i><h3>Энергия</h3><p>Молодые, горячие, креативные</p></div>
                 </div>
 
                 <h3 style="margin-top:40px; margin-bottom:20px;">Наша <span style="color:var(--accent);">команда</span></h3>
                 <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width:700px; margin:0 auto;">
                     <div class="card text-center">
-                        <img src="team-1.png" alt="Анна Петрова" class="team-photo" />
-                        <h4>Анна Петрова</h4>
+                        <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#f4a460,#ffb87a);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:2.8rem;font-weight:800;color:#0d1b2a;border:3px solid var(--accent);">ДД</div>
+                        <h4>Дмитрий Давыдов</h4>
                         <p style="color:var(--gray);">CEO / Дизайнер</p>
-                        <div style="display:flex;justify-content:center;gap:12px;margin-top:10px;">
-                            <a href="https://vk.com/id594341269" target="_blank"><i class="fab fa-vk" style="font-size:1.4rem;"></i></a>
-                            <a href="https://t.me/Lincink" target="_blank"><i class="fab fa-telegram" style="font-size:1.4rem;"></i></a>
-                        </div>
                     </div>
                     <div class="card text-center">
-                        <img src="team-2.png" alt="Максим Иванов" class="team-photo" />
-                        <h4>Максим Иванов</h4>
+                        <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#f4a460,#ffb87a);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:2.8rem;font-weight:800;color:#0d1b2a;border:3px solid var(--accent);">ММ</div>
+                        <h4>Максим Марочкин</h4>
                         <p style="color:var(--gray);">Senior Developer</p>
-                        <div style="display:flex;justify-content:center;gap:12px;margin-top:10px;">
-                            <a href="https://vk.com/id594341269" target="_blank"><i class="fab fa-vk" style="font-size:1.4rem;"></i></a>
-                            <a href="https://t.me/Lincink" target="_blank"><i class="fab fa-telegram" style="font-size:1.4rem;"></i></a>
-                        </div>
                     </div>
                 </div>
 
-                <div style="margin-top:50px;">
-                    <h3 style="margin-bottom:20px;">Мы <span style="color:var(--accent);">на карте</span></h3>
-                    <div class="map-container">
-                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j&amp;source=constructor" 
-                                allowfullscreen="true"
-                                loading="lazy">
-                        </iframe>
-                    </div>
-                    <div style="text-align:center; color:var(--gray); margin-top:12px;">
-                        <i class="fas fa-map-marker-alt" style="color:var(--accent);"></i>
-                        <strong>Москва, ул. Тверская 12</strong>
-                        <span style="display:inline-block; margin-left:20px;">
-                            <i class="fas fa-clock" style="color:var(--accent);"></i> Ежедневно: 9:00 – 20:00
-                        </span>
-                    </div>
+                <!-- КНОПКА НА КОНТАКТЫ -->
+                <div style="text-align:center; margin-top:40px;">
+                    <a href="#" class="btn" data-page="contacts" style="font-size:1.2rem; padding:16px 50px;">Оставить заявку</a>
                 </div>
             </div>
         </section>
 
-        <!-- ===== КОНТАКТЫ (БЕЗ ФОРМ) ===== -->
+        <!-- ===== КОНТАКТЫ (БЕЗ ФОРМЫ, БЕЗ АДРЕСА, БЕЗ КАРТЫ) ===== -->
         <section id="page-contacts" class="page">
             <div class="container">
                 <h2 class="section-title"><span class="highlight">Контакты</span></h2>
                 <div style="display:flex;flex-wrap:wrap;gap:40px; justify-content:center;">
                     <div style="flex:1 1 400px; max-width:500px;">
                         <div style="background:var(--bg-card);padding:40px;border-radius:var(--radius);">
-                            <h3 style="margin-bottom:20px;">Контактная <span style="color:var(--accent);">информация</span></h3>
-                            <p style="margin:16px 0; font-size:1.2rem;">
+                            <h3 style="margin-bottom:24px; font-size:1.6rem;">Свяжитесь <span style="color:var(--accent);">с нами</span></h3>
+                            <p style="margin:20px 0; font-size:1.2rem;">
                                 <i class="fas fa-phone" style="color:var(--accent);width:30px;"></i> 
                                 <a href="tel:89066015868" style="color:#fff; font-weight:600;">8 906 601-58-68</a>
                             </p>
-                            <p style="margin:16px 0; font-size:1.2rem;">
+                            <p style="margin:20px 0; font-size:1.2rem;">
                                 <i class="fas fa-envelope" style="color:var(--accent);width:30px;"></i> 
                                 <a href="mailto:maxmar3131@gmail.com" style="color:#fff; font-weight:600;">maxmar3131@gmail.com</a>
                             </p>
-                            <p style="margin:16px 0; font-size:1.2rem;">
-                                <i class="fas fa-map-marker-alt" style="color:var(--accent);width:30px;"></i> 
-                                <span style="color:#fff;">Москва, ул. Тверская 12</span>
-                            </p>
-                            <p style="margin:16px 0; font-size:1.2rem;">
-                                <i class="fas fa-clock" style="color:var(--accent);width:30px;"></i> 
-                                <span style="color:#fff;">Ежедневно: 9:00 – 20:00</span>
-                            </p>
-                            <h4 style="margin:30px 0 16px;">Мы в соцсетях</h4>
-                            <div style="display:flex; gap:20px; font-size:2.2rem;">
-                                <a href="https://max.ru/u/f9LHodD0cOKEPv03B7DhPtqQQAnMSy1gax2TNaj_rIfWQQ-L_3iGsfy1v5k" target="_blank" style="color:#667eea;"><i class="fas fa-link"></i></a>
-                                <a href="https://t.me/Lincink" target="_blank" style="color:#0088cc;"><i class="fab fa-telegram"></i></a>
-                                <a href="https://vk.com/id594341269" target="_blank" style="color:#0077ff;"><i class="fab fa-vk"></i></a>
+                            <div style="margin-top:30px;">
+                                <h4 style="margin-bottom:16px;">Мы в соцсетях</h4>
+                                <div style="display:flex; gap:20px; font-size:2.2rem;">
+                                    <a href="https://max.ru/u/f9LHodD0cOKEPv03B7DhPtqQQAnMSy1gax2TNaj_rIfWQQ-L_3iGsfy1v5k" target="_blank" style="color:#667eea;"><i class="fas fa-link"></i></a>
+                                    <a href="https://t.me/Lincink" target="_blank" style="color:#0088cc;"><i class="fab fa-telegram"></i></a>
+                                    <a href="https://vk.com/id594341269" target="_blank" style="color:#0077ff;"><i class="fab fa-vk"></i></a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="map-container" style="margin-top:20px;">
-                            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j&amp;source=constructor" 
-                                    allowfullscreen="true"
-                                    loading="lazy"
-                                    style="height:220px;">
-                            </iframe>
                         </div>
                     </div>
                 </div>
@@ -1674,7 +1606,7 @@
                 });
             }
 
-            document.querySelectorAll('.card, .step, .review-card, .faq-item, .stats .item').forEach((el, i) => {
+            document.querySelectorAll('.card, .step, .faq-item, .stats .item').forEach((el, i) => {
                 el.classList.add('fade-up');
                 setTimeout(() => {
                     if (el.getBoundingClientRect().top < window.innerHeight) {
