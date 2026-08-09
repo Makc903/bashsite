@@ -31,6 +31,7 @@
             --radius: 16px;
             --transition: 0.3s ease;
             --font: 'Inter', sans-serif;
+            --beige: #f5e6d3;
         }
         html {
             scroll-behavior: smooth;
@@ -209,40 +210,44 @@
         .card ul li {
             color: var(--gray);
             padding: 4px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
         }
         .card ul li i {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--accent);
-            margin-right: 8px;
-            width: 18px;
+            margin-top: 5px;
+            width: 16px;
+            flex-shrink: 0;
         }
 
-        /* Стильные бейджи вместо "Хит", "Популярный", "Скидка" */
+        /* Маленькие стильные бейджи */
         .badge {
             display: inline-block;
-            padding: 4px 14px;
-            border-radius: 40px;
-            font-size: 0.7rem;
-            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 30px;
+            font-size: 0.6rem;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+            margin-bottom: 10px;
             background: transparent;
+            border: 1px solid var(--accent);
             color: var(--accent);
-            border: 1.5px solid var(--accent);
         }
         .badge.hit {
-            background: rgba(244, 164, 96, 0.15);
+            background: rgba(244, 164, 96, 0.12);
             border-color: var(--accent);
             color: var(--accent);
         }
         .badge.popular {
-            background: rgba(244, 164, 96, 0.10);
+            background: rgba(244, 164, 96, 0.08);
             border-color: #f4a460;
             color: #f4a460;
         }
         .badge.sale {
-            background: rgba(255, 107, 53, 0.12);
+            background: rgba(255, 107, 53, 0.10);
             border-color: #ff6b35;
             color: #ff6b35;
         }
@@ -282,9 +287,10 @@
             font-size: 0.9rem;
         }
 
+        /* Герой с бежевым фоном */
         .hero {
             padding: 140px 0 80px;
-            background: radial-gradient(circle at 30% 30%, #1a2a3f, #0b1622);
+            background: var(--beige);
             position: relative;
             overflow: hidden;
             min-height: 100vh;
@@ -298,7 +304,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.3;
+            opacity: 0.15;
             z-index: 0;
         }
         .hero .container {
@@ -311,10 +317,11 @@
             line-height: 1.1;
             letter-spacing: -0.02em;
             max-width: 900px;
+            color: #0d1b2a;
         }
         .hero p {
             font-size: 1.3rem;
-            color: var(--gray);
+            color: #2d4059;
             margin: 24px 0 32px;
             max-width: 700px;
         }
@@ -322,6 +329,22 @@
             display: flex;
             flex-wrap: wrap;
             gap: 18px;
+        }
+        .hero .btn {
+            background: var(--accent);
+            color: #0d1b2a;
+        }
+        .hero .btn:hover {
+            background: var(--accent-hover);
+        }
+        .hero .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: #0d1b2a;
+        }
+        .hero .btn-outline:hover {
+            background: var(--accent);
+            color: #0d1b2a;
         }
 
         .problem-solution {
@@ -398,15 +421,16 @@
             text-align: center;
         }
         .stats .item {
-            flex: 1 1 120px;
+            flex: 1 1 200px;
         }
         .stats .number {
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             font-weight: 800;
             color: var(--accent);
         }
         .stats .label {
             color: var(--gray);
+            font-size: 1rem;
         }
 
         .faq-item {
@@ -752,6 +776,13 @@
             .case-hero h1 {
                 font-size: 1.6rem;
             }
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .stats .item {
+                flex: none;
+            }
         }
     </style>
 </head>
@@ -846,7 +877,7 @@
                     </div>
                 </section>
 
-                <!-- СТАТИСТИКА (с молнией вместо огня) -->
+                <!-- СТАТИСТИКА -->
                 <section>
                     <div class="stats">
                         <div class="item">
@@ -854,17 +885,15 @@
                             <div class="label">Молодые и горячие</div>
                         </div>
                         <div class="item">
-                            <div class="number">120+</div>
-                            <div class="label">проектов</div>
+                            <div class="number">🤝</div>
+                            <div class="label">Поддержка на любом этапе</div>
                         </div>
                         <div class="item">
-                            <div class="number">98%</div>
-                            <div class="label">довольных клиентов</div>
+                            <div class="number">✨</div>
+                            <div class="label">Учтём все ваши пожелания</div>
                         </div>
                     </div>
                 </section>
-
-                <!-- ❌ БЛОК "ОТЗЫВЫ" УДАЛЁН -->
 
                 <!-- FAQ -->
                 <section>
@@ -905,10 +934,10 @@
                         <h3>Сайт-визитка</h3>
                         <div class="price">от 10 000 ₽</div>
                         <ul>
-                            <li><i class="fas fa-check"></i> Уникальный дизайн</li>
-                            <li><i class="fas fa-check"></i> Адаптивная верстка</li>
-                            <li><i class="fas fa-check"></i> Настройка хостинга</li>
-                            <li><i class="fas fa-check"></i> 3 месяца поддержки</li>
+                            <li><i class="fas fa-circle"></i> Уникальный дизайн</li>
+                            <li><i class="fas fa-circle"></i> Адаптивная верстка</li>
+                            <li><i class="fas fa-circle"></i> Настройка хостинга</li>
+                            <li><i class="fas fa-circle"></i> 3 месяца поддержки</li>
                         </ul>
                         <div class="btn-wrap">
                             <a href="#" class="btn btn-sm" data-page="contacts">Заказать</a>
@@ -921,10 +950,10 @@
                         <h3>Лендинг</h3>
                         <div class="price">от 20 000 ₽</div>
                         <ul>
-                            <li><i class="fas fa-check"></i> Продающий дизайн</li>
-                            <li><i class="fas fa-check"></i> А/В тестирование</li>
-                            <li><i class="fas fa-check"></i> Интеграция с CRM</li>
-                            <li><i class="fas fa-check"></i> Аналитика</li>
+                            <li><i class="fas fa-circle"></i> Продающий дизайн</li>
+                            <li><i class="fas fa-circle"></i> А/В тестирование</li>
+                            <li><i class="fas fa-circle"></i> Интеграция с CRM</li>
+                            <li><i class="fas fa-circle"></i> Аналитика</li>
                         </ul>
                         <div class="btn-wrap">
                             <a href="#" class="btn btn-sm" data-page="contacts">Заказать</a>
@@ -937,10 +966,10 @@
                         <h3>Интернет-магазин</h3>
                         <div class="price">от 40 000 ₽</div>
                         <ul>
-                            <li><i class="fas fa-check"></i> Каталог товаров</li>
-                            <li><i class="fas fa-check"></i> Корзина и оплата</li>
-                            <li><i class="fas fa-check"></i> Личный кабинет</li>
-                            <li><i class="fas fa-check"></i> Интеграция с 1С</li>
+                            <li><i class="fas fa-circle"></i> Каталог товаров</li>
+                            <li><i class="fas fa-circle"></i> Корзина и оплата</li>
+                            <li><i class="fas fa-circle"></i> Личный кабинет</li>
+                            <li><i class="fas fa-circle"></i> Интеграция с 1С</li>
                         </ul>
                         <div class="btn-wrap">
                             <a href="#" class="btn btn-sm" data-page="contacts">Заказать</a>
@@ -952,10 +981,10 @@
                         <h3>Корпоративный сайт</h3>
                         <div class="price">от 30 000 ₽</div>
                         <ul>
-                            <li><i class="fas fa-check"></i> Многостраничный</li>
-                            <li><i class="fas fa-check"></i> Личный кабинет</li>
-                            <li><i class="fas fa-check"></i> Система управления</li>
-                            <li><i class="fas fa-check"></i> Безопасность</li>
+                            <li><i class="fas fa-circle"></i> Многостраничный</li>
+                            <li><i class="fas fa-circle"></i> Личный кабинет</li>
+                            <li><i class="fas fa-circle"></i> Система управления</li>
+                            <li><i class="fas fa-circle"></i> Безопасность</li>
                         </ul>
                         <div class="btn-wrap">
                             <a href="#" class="btn btn-sm" data-page="contacts">Заказать</a>
@@ -967,9 +996,9 @@
                         <h3>Мобильная версия</h3>
                         <div class="price">от 8 000 ₽</div>
                         <ul>
-                            <li><i class="fas fa-check"></i> Адаптивный дизайн</li>
-                            <li><i class="fas fa-check"></i> Удобный интерфейс</li>
-                            <li><i class="fas fa-check"></i> Touch-элементы</li>
+                            <li><i class="fas fa-circle"></i> Адаптивный дизайн</li>
+                            <li><i class="fas fa-circle"></i> Удобный интерфейс</li>
+                            <li><i class="fas fa-circle"></i> Touch-элементы</li>
                         </ul>
                         <div class="btn-wrap">
                             <a href="#" class="btn btn-sm" data-page="contacts">Заказать</a>
@@ -981,10 +1010,10 @@
                         <h3>SEO-оптимизация</h3>
                         <div class="price">от 10 000 ₽/мес</div>
                         <ul>
-                            <li><i class="fas fa-check"></i> Аудит сайта</li>
-                            <li><i class="fas fa-check"></i> Оптимизация контента</li>
-                            <li><i class="fas fa-check"></i> Рост в поиске</li>
-                            <li><i class="fas fa-check"></i> Ежемесячный отчет</li>
+                            <li><i class="fas fa-circle"></i> Аудит сайта</li>
+                            <li><i class="fas fa-circle"></i> Оптимизация контента</li>
+                            <li><i class="fas fa-circle"></i> Рост в поиске</li>
+                            <li><i class="fas fa-circle"></i> Ежемесячный отчет</li>
                         </ul>
                         <div class="btn-wrap">
                             <a href="#" class="btn btn-sm" data-page="contacts">Заказать</a>
@@ -1271,7 +1300,7 @@
             </div>
         </section>
 
-        <!-- ===== О НАС (новые имена, без ссылок) ===== -->
+        <!-- ===== О НАС ===== -->
         <section id="page-about" class="page">
             <div class="container">
                 <h2 class="section-title">О <span class="highlight">нас</span></h2>
@@ -1289,12 +1318,12 @@
                 <h3 style="margin-top:40px; margin-bottom:20px;">Наша <span style="color:var(--accent);">команда</span></h3>
                 <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width:700px; margin:0 auto;">
                     <div class="card text-center">
-                        <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#f4a460,#ffb87a);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:2.8rem;font-weight:800;color:#0d1b2a;border:3px solid var(--accent);">ДД</div>
+                        <img src="images/dmitry.jpg" alt="Дмитрий Давыдов" class="team-photo" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#f4a460,#ffb87a);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:2.8rem;font-weight:800;color:#0d1b2a;border:3px solid var(--accent);\'>ДД</div><h4>Дмитрий Давыдов</h4><p style=\'color:var(--gray);\'>CEO / Дизайнер</p>';" />
                         <h4>Дмитрий Давыдов</h4>
                         <p style="color:var(--gray);">CEO / Дизайнер</p>
                     </div>
                     <div class="card text-center">
-                        <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#f4a460,#ffb87a);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:2.8rem;font-weight:800;color:#0d1b2a;border:3px solid var(--accent);">ММ</div>
+                        <img src="images/maxim.jpg" alt="Максим Марочкин" class="team-photo" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#f4a460,#ffb87a);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:2.8rem;font-weight:800;color:#0d1b2a;border:3px solid var(--accent);\'>ММ</div><h4>Максим Марочкин</h4><p style=\'color:var(--gray);\'>Senior Developer</p>';" />
                         <h4>Максим Марочкин</h4>
                         <p style="color:var(--gray);">Senior Developer</p>
                     </div>
@@ -1307,7 +1336,7 @@
             </div>
         </section>
 
-        <!-- ===== КОНТАКТЫ (БЕЗ ФОРМЫ, БЕЗ АДРЕСА, БЕЗ КАРТЫ) ===== -->
+        <!-- ===== КОНТАКТЫ ===== -->
         <section id="page-contacts" class="page">
             <div class="container">
                 <h2 class="section-title"><span class="highlight">Контакты</span></h2>
@@ -1321,14 +1350,14 @@
                             </p>
                             <p style="margin:20px 0; font-size:1.2rem;">
                                 <i class="fas fa-envelope" style="color:var(--accent);width:30px;"></i> 
-                                <a href="mailto:maxmar3131@gmail.com" style="color:#fff; font-weight:600;">maxmar3131@gmail.com</a>
+                                <a href="mailto:zaobashsite@mail.ru" style="color:#fff; font-weight:600;">zaobashsite@mail.ru</a>
                             </p>
                             <div style="margin-top:30px;">
                                 <h4 style="margin-bottom:16px;">Мы в соцсетях</h4>
                                 <div style="display:flex; gap:20px; font-size:2.2rem;">
                                     <a href="https://max.ru/u/f9LHodD0cOKEPv03B7DhPtqQQAnMSy1gax2TNaj_rIfWQQ-L_3iGsfy1v5k" target="_blank" style="color:#667eea;"><i class="fas fa-link"></i></a>
                                     <a href="https://t.me/Lincink" target="_blank" style="color:#0088cc;"><i class="fab fa-telegram"></i></a>
-                                    <a href="https://vk.com/id594341269" target="_blank" style="color:#0077ff;"><i class="fab fa-vk"></i></a>
+                                    <a href="https://vk.com/id1070654461" target="_blank" style="color:#0077ff;"><i class="fab fa-vk"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -1347,7 +1376,7 @@
         <a href="https://t.me/Lincink" target="_blank" class="telegram" aria-label="Telegram">
             <i class="fab fa-telegram-plane"></i>
         </a>
-        <a href="https://vk.com/id594341269" target="_blank" class="vk" aria-label="VK">
+        <a href="https://vk.com/id1070654461" target="_blank" class="vk" aria-label="VK">
             <i class="fab fa-vk"></i>
         </a>
     </div>
@@ -1377,11 +1406,11 @@
                 <div>
                     <h4>Контакты</h4>
                     <a href="tel:89066015868">8 906 601-58-68</a>
-                    <a href="mailto:maxmar3131@gmail.com">maxmar3131@gmail.com</a>
+                    <a href="mailto:zaobashsite@mail.ru">zaobashsite@mail.ru</a>
                     <div class="social-links">
                         <a href="https://max.ru/u/f9LHodD0cOKEPv03B7DhPtqQQAnMSy1gax2TNaj_rIfWQQ-L_3iGsfy1v5k" target="_blank"><i class="fas fa-link"></i></a>
                         <a href="https://t.me/Lincink" target="_blank"><i class="fab fa-telegram"></i></a>
-                        <a href="https://vk.com/id594341269" target="_blank"><i class="fab fa-vk"></i></a>
+                        <a href="https://vk.com/id1070654461" target="_blank"><i class="fab fa-vk"></i></a>
                     </div>
                 </div>
                 <div>
