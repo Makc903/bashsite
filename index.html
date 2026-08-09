@@ -288,68 +288,72 @@
         }
 
         /* Герой с картинкой фона */
-      .hero {
-    padding: 140px 0 80px;
-    background: transparent; /* ← Убираем белый фон! */
-    position: relative;
-    overflow: hidden;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-}
-.hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 1; /* ← Делаем картинку полностью видимой */
-    z-index: 0;
-}
-.hero .container {
-    position: relative;
-    z-index: 1;
-}
-.hero h1 {
-    font-size: 3.8rem;
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    max-width: 900px;
-    color: #0d1b2a;
-}
-.hero p {
-    font-size: 1.3rem;
-    color: #2d4059;
-    margin: 24px 0 32px;
-    max-width: 700px;
-}
-.hero .btns {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 18px;
-}
-.hero .btn {
-    background: var(--accent);
-    color: #0d1b2a;
-}
-.hero .btn:hover {
-    background: var(--accent-hover);
-}
-.hero .btn-outline {
-    background: transparent;
-    border: 2px solid var(--accent);
-    color: #0d1b2a;
-}
-.hero .btn-outline:hover {
-    background: var(--accent);
-    color: #0d1b2a;
-}
-/* Убираем декоративную звезду, если она мешает */
-.hero::after {
-    display: none;
-}
+        .hero {
+            padding: 140px 0 80px;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+            z-index: 0;
+        }
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            max-width: 900px;
+            color: #ffffff;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        }
+        .hero p {
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin: 24px 0 32px;
+            max-width: 700px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .hero .btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+        .hero .btn {
+            background: var(--accent);
+            color: #0d1b2a;
+        }
+        .hero .btn:hover {
+            background: var(--accent-hover);
+        }
+        .hero .btn-outline {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+            border: 2px solid #ffffff;
+            color: #ffffff;
+        }
+        .hero .btn-outline:hover {
+            background: var(--accent);
+            color: #0d1b2a;
+            border-color: var(--accent);
+        }
+        .hero::after {
+            display: none;
+        }
+
         .problem-solution {
             display: flex;
             flex-wrap: wrap;
@@ -743,11 +747,6 @@
             .case-content {
                 padding: 24px;
             }
-            .hero::after {
-                font-size: 6rem;
-                right: 2%;
-                bottom: 5%;
-            }
             .logo img {
                 height: 28px;
             }
@@ -794,9 +793,6 @@
             .stats .item {
                 flex: none;
             }
-            .hero::after {
-                font-size: 4rem;
-            }
         }
     </style>
 </head>
@@ -827,19 +823,19 @@
 
     <main>
 
-   <!-- ===== ГЛАВНАЯ ===== -->
-        <se     ction id="page-index" class="page active">
-           <div class="hero">
-    <img src="hero-bg.png" alt="Фон" class="hero-bg" />
-    <div class="container">
-        <h1>Ваш сайт — ваш лучший продажник за 3 секунды</h1>
-        <p>Создаем сайты, которые приносят клиентов с первого дня. Разработка под ключ: дизайн, верстка, хостинг.</p>
-        <div class="btns">
-            <a href="#" class="btn" data-page="contacts">Заказать сайт</a>
-            <a href="#" class="btn btn-outline" data-page="services">Узнать стоимость</a>
-        </div>
-    </div>
-</div>
+        <!-- ===== ГЛАВНАЯ ===== -->
+        <section id="page-index" class="page active">
+            <div class="hero">
+                <img src="hero-bg.png" alt="Фон" class="hero-bg" />
+                <div class="container">
+                    <h1>Ваш сайт — ваш лучший продажник за 3 секунды</h1>
+                    <p>Создаем сайты, которые приносят клиентов с первого дня. Разработка под ключ: дизайн, верстка, хостинг.</p>
+                    <div class="btns">
+                        <a href="#" class="btn" data-page="contacts">Заказать сайт</a>
+                        <a href="#" class="btn btn-outline" data-page="services">Узнать стоимость</a>
+                    </div>
+                </div>
+            </div>
 
             <div class="container">
                 <!-- ПРОБЛЕМА-РЕШЕНИЕ (ракета) -->
